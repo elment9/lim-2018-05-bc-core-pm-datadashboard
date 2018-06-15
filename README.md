@@ -78,7 +78,8 @@ En primera instancia, se creó un prototipo en papel. Este contenía las funcion
 en la lista. Después de la entrevista con Ale, se quitaron algunas funciones y se organizaron mejor
 otras.
 
-![primer prototipo0](https://github.com/elment9/lim-2018-05-bc-core-pm-datadashboard/blob/develop/src/img/1.jpg)
+![1](https://user-images.githubusercontent.com/39272944/41488583-6f89f004-70b2-11e8-8587-019ff9c92622.jpg)
+
 ![primer prototipo1](https://github.com/elment9/lim-2018-05-bc-core-pm-datadashboard/blob/develop/src/img/2.jpg)
 ![primer prototipo2](https://github.com/elment9/lim-2018-05-bc-core-pm-datadashboard/blob/develop/src/img/3.jpg)
 
