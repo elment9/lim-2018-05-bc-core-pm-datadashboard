@@ -17,7 +17,7 @@ body {
 }
 .imgLab {
     float: left;
-    width: 350px;
+    width: 35px;
     height: 420px;
     overflow: hidden;
 }
@@ -53,7 +53,7 @@ h3 {
     box-sizing: border-box;
 }
 ::placeholder {
-    color: rgba(0, 0, 0, .5);
+    color: rgba(255, 255, 255, 0.5);
 }
 .inputLab {
     position: relative;
@@ -75,6 +75,9 @@ h3 {
     cursor: pointer;
 }
 .loginLab a {
+
+
+
     color: #262626;
     font-size: 14px;
     text-decoration: none;
@@ -141,7 +144,7 @@ a {
     font-family: 'Montserrat';
 }
 a:hover {
-    color: blue;
+    color: rgb(86, 86, 228);
 }
 
 .principal-dashboard {
