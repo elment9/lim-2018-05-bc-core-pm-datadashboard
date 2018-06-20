@@ -34,15 +34,20 @@ let myFunction = (e) => {
     fetch(usersLima)
       .then(response => response.json())
       .then(jsonUsersLima => {
-          const studentsLima =jsonUsersLima.filter(function(studentFilter){//Creo una constante studentsLima y coloco json de cohort dentro. Luego uso filter (dentro coloco función). Si cumple esta función haz esto
-            if (studentFilter)
+          const studentsLima =jsonUsersLima.filter(function (studentFilter){//Creo una constante studentsLima y coloco json de cohort dentro. Luego uso filter (dentro coloco función). Si cumple esta función haz esto
+            if ((studentFilter.signupCohort = 'lim-2018-03-pre-core-pw') && (studentFilter.role = 'student')){//Filtramos de acuerdo a propiedades de lista de users
+          const nuevoParrafo = document.createElement('p');//creo elemento p
+          nuevoParrafo.innerText = studentFilter.name;
+          listStudent.appendChild(nuevoParrafo);
           }
-       
-      })
-      .catch((err) => {//Error 404
-        console.error(err);
-      });
-  }
+          else {
+            return false
+          }
+          })
+    
+
+  })
+}
 }
 sedeCohort.addEventListener('change', myFunction);
 
