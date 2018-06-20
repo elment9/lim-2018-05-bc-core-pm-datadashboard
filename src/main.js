@@ -1,5 +1,4 @@
 
-
   // sedeCohort.addEventListener("change", (e) => {
   //   if (e.target.value === 'lim-2018-03-pre-core-pw') {
   //     fetch ('../data/cohorts/lim-2018-03-pre-core-pw/users.json')
