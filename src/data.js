@@ -1,44 +1,48 @@
 //Creando el objeto data
 window.data = {
-  //Creando la funcion computeUserStats
-  computeUserStats : (users, progress, courses) =>{
-  },
-  //Creando la funcion sortUsers
-  sortUsers : (users, orderBy,orderDirection) =>{},
-  //Creando la funcion filterUsers
-  filterUsers : (users, search) =>{},
-  //Creando la funcion processCohortData
-  processCohortData : (options) =>{}
 };
 
-//Users: es el arreglo de usuarios (estudiantes). Un array que contenga todos los objetos (estudiantes).  
-//Arreglo de objetos obtenido de la data en bruto.
-
-//progress: es un objeto de progreso en bruto (o sea los datos de progreso de cada uno de los estudiantes) 
-// objeto progress debe tener los siguientes atributos: uid (el id de cada alumno). Asi se relaciona el alumno
-// con todo el proceso (de todos los cursos)
-
-//courses: arreglo de strings con los id de los cursos del cohort en cuestion
+// variables url json
+const cohortTotal = '../data/cohorts.json',
+      usersLima = '../data/cohorts/lim-2018-03-pre-core-pw/users.json',
+      progressLima = '../data/cohorts/lim-2018-03-pre-core-pw/progress.json';
 
 // seleccionando elementos del html
-const selectElement = document.getElementById('sedes');
+const sedeCohort = document.getElementById('sede');
 
-fetch('../data/cohorts.json')
+//Traer cohorts
+fetch(cohortTotal)
   .then(response => response.json())
-  .then(json => {
-     const sedes = json; 
-     console.log(sedes.length);
-     for(let i = 0; i < sedes.length; i ++) {
-         const optionElements = document.createElement('option');
-         const contenidoOption = document.createTextNode(sedes[i].id);
-         optionElements.appendChild(contenidoOption);
-         console.log(sedes[i].id);
-         selectElement.appendChild(optionElements);
-     }
+  .then(jsonCohortLim => {
+    const sedes = jsonCohortLim;
+    for (let i = 0; i < sedes.length; i++) {
+      const optionElements = document.createElement('option');
+      const contenidoOption = document.createTextNode(sedes[i].id);
+      optionElements.appendChild(contenidoOption);
+      console.log(sedes[i].id);
+      sedeCohort.appendChild(optionElements);
+      sedeCohort.setAttribute('value', sedes[i].id); //Atributo valor a sedes
+    }
   })
-  .catch((err) => {
-    // algo salió mal...
+  .catch((err) => {//Error 404
     console.error(err);
   });
 
+let myFunction = (e) => {
+
+  if (e.target.value === 'lim-2018-03-pre-core-pw') {//e.target = valor que se da cuando cliqueas opcion del selec
+    fetch(usersLima)
+      .then(response => response.json())
+      .then(jsonUsersLima => {
+          const studentsLima =jsonUsersLima.filter(function(studentFilter){//Creo una constante studentsLima y coloco json de cohort dentro. Luego uso filter (dentro coloco función). Si cumple esta función haz esto
+            if (studentFilter)
+          }
+       
+      })
+      .catch((err) => {//Error 404
+        console.error(err);
+      });
+  }
+}
+sedeCohort.addEventListener('change', myFunction);
 
