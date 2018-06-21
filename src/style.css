@@ -4,85 +4,6 @@ body {
     padding: 0;
     background-color: white;
 }
-.containerLogin {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 700px;
-    height: 420px;
-    border-radius: 5px;
-    border: 10px solid rgba(255, 255, 255, .2);
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, .5);
-}
-.imgLab {
-    float: left;
-    width: 35px;
-    height: 420px;
-    overflow: hidden;
-}
-.imgLab img {
-    width: 100%;
-}
-.loginLab {
-    float: right;
-    width: 350px;
-    height: 420px;
-    box-sizing: border-box;
-    padding: 80px 40px;
-    background: rgba(255, 255, 255, .8);
-    font-family: 'Open Sans', sans-serif;
-}
-h3 {
-    margin: 0;
-    padding: 0 0 20px;
-}
-.loginLab input {
-    width: 100%;
-    margin-bottom: 20px;
-}
-.loginLab input[type="text"], .loginLab input[type="password"] {
-    border: none;
-    border-bottom: 2px solid #262626;
-    outline: none;
-    height: 40px;
-    color: #262626;
-    background: transparent;
-    font-size: 16px;
-    padding-left: 20px;
-    box-sizing: border-box;
-}
-::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-.inputLab {
-    position: relative;
-}
-.inputLab span {
-    position: absolute;
-    top: 10px;
-    color: #262626;
-}
-.loginLab input[type="submit"] {
-    border: none;
-    outline: none;
-    height: 40px;
-    font-size: 16px;
-    font-weight: bold;
-    background: #ffc107;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.loginLab a {
-
-
-
-    color: #262626;
-    font-size: 14px;
-    text-decoration: none;
-}
-
 
 .side-dashboard {
     background-color: #ffc107;
@@ -93,34 +14,29 @@ h3 {
     bottom: 0;
     left: 0;
 }
-.user {
+
+
+aside label {
+    display: block;
+}
+
+
+.user {/*EMPIEZA */
     width: 100%;
     height: 35%;
-
 }
-img.side-user {
+
+
+img.side-user {/*Imagen usuario*/
     display: block;
     margin: auto;
     padding: 25px;
-
-
     width: auto;
     height: auto;
     max-width: 100px;
     max-height: 100px;
 }
-p {
-    color:black;
-    font-size: 15px;
-    font-family: 'Montserrat';
-    text-align: center;
-    margin: auto;
-    padding: auto;
-}
-ul {
-    list-style: none;
-}
-.nav-item {
+.nav-item {/*Contenedor de lista*/
     padding: 15px 0 15px 15px;
     height: 25px;
     line-height: 25px;
@@ -135,7 +51,10 @@ ul {
 .nav-item:hover {
     background-color: beige;
 }
-a {
+ul {/*Lista*/
+    list-style: none;
+}
+a {/*ENLACE*/
     text-decoration: none !important;
     border: none !important;
     
@@ -147,7 +66,18 @@ a:hover {
     color: rgb(86, 86, 228);
 }
 
-.principal-dashboard {
+
+
+/*---ESCRITORIO---*/
+@media (min-width:760px){
+
+    
+}
+
+
+
+/*---MAIN---*/
+.principal-dashboard { 
     width: 80%;
     height: 100%;
     position: absolute;
@@ -169,8 +99,16 @@ img.banner-logo {
     max-width: 300px;
     max-height: 300px;
 }
+p {
+    color:black;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    text-align: center;
+    margin: auto;
+    padding: auto;
+}
 .menu-principal {
-    background-color: whitesmoke;
+    background-color: rgb(192, 39, 39);
     width: 100%;
     height: 85%;
 }
