@@ -1,114 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 body {
     margin: 0;
     padding: 0;
     background-color: white;
 }
 
-.side-dashboard {
-    background-color: #ffc107;
-    width: 20%;
-    height: 100%;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
+aside{
+    position:fixed;
+	width:65px;
+	height:100%;
+	background-color:#2f3030;
+	overflow:hidden;
+	-webkit-transition:width 0.5s cubic-bezier(.61,.01,.37,1);
+}
+
+aside :hover{
+    width:170px;
 }
 
 
-aside label {
-    display: block;
-}
-
-
-.user {/*EMPIEZA */
-    width: 100%;
-    height: 35%;
-}
-
-
-img.side-user {/*Imagen usuario*/
-    display: block;
-    margin: auto;
-    padding: 25px;
-    width: auto;
-    height: auto;
-    max-width: 100px;
-    max-height: 100px;
-}
-.nav-item {/*Contenedor de lista*/
-    padding: 15px 0 15px 15px;
-    height: 25px;
-    line-height: 25px;
-}
-.nav-item img {
-    height: 25px;
-    width: auto;
-
-    float: left;
-    margin-right: 10px;
-}
-.nav-item:hover {
-    background-color: beige;
-}
-ul {/*Lista*/
-    list-style: none;
-}
-a {/*ENLACE*/
-    text-decoration: none !important;
-    border: none !important;
-    
-    font-size: 14px;
-    color: black;
-    font-family: 'Montserrat';
-}
-a:hover {
-    color: rgb(86, 86, 228);
-}
-
-
-
-/*---ESCRITORIO---*/
-@media (min-width:760px){
-
-    
-}
-
-
-
-/*---MAIN---*/
-.principal-dashboard { 
-    width: 80%;
-    height: 100%;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    right: 0;
-}
-.banner {
-    width: 100%;
-    height: 15%;
-}
-img.banner-logo {
-    display: block;
-    margin: auto;
-    padding: 7px;
-
-    width: auto;
-    height: auto;
-    max-width: 300px;
-    max-height: 300px;
-}
-p {
-    color:black;
-    font-size: 15px;
-    font-family: 'Montserrat';
-    text-align: center;
-    margin: auto;
-    padding: auto;
-}
-.menu-principal {
-    background-color: rgb(192, 39, 39);
-    width: 100%;
-    height: 85%;
-}
