@@ -1,3 +1,11 @@
+window.computeUsersStats = (users, progress, courses) => {
+
+     
+
+}
+
+
+
 // //Creando el objeto data
 // window.data = {
 // };
