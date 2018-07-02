@@ -79,8 +79,6 @@ h3 {
     font-size: 14px;
     text-decoration: none;
 }
-
-
 .side-dashboard {
     background-color: #ffc107;
     width: 20%;
@@ -93,14 +91,11 @@ h3 {
 .user {
     width: 100%;
     height: 35%;
-
 }
 img.side-user {
     display: block;
     margin: auto;
     padding: 25px;
-
-
     width: auto;
     height: auto;
     max-width: 100px;
@@ -125,7 +120,6 @@ ul {
 .nav-item img {
     height: 25px;
     width: auto;
-
     float: left;
     margin-right: 10px;
 }
@@ -143,7 +137,6 @@ a {
 a:hover {
     color: blue;
 }
-
 .principal-dashboard {
     width: 80%;
     height: 100%;
@@ -160,14 +153,45 @@ img.banner-logo {
     display: block;
     margin: auto;
     padding: 7px;
-
     width: auto;
     height: auto;
     max-width: 300px;
     max-height: 300px;
 }
-.menu-principal {
-    background-color: whitesmoke;
+.menu-principal, .menu-sedes {
     width: 100%;
     height: 85%;
+    position: absolute;
+}
+.sede-fila {
+    background-color: aquamarine;
+}
+.menu-proceso {
+    background-color: lightcyan;
+    margin: 0px;
+    padding: 5px;
+}
+.num-alumnas, .num-cursos, .details-student{
+    background-color: rgb(212, 214, 214);
+    border-radius: 2px;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+}
+.student-container {
+    background-color: rgb(212, 214, 214);
+    width: 98%;
+}
+/* div {
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    border: 0.5px solid #666666;
+    display: inline-block;
+    box-sizing: border-box;
+} */
+p {
+    font-size: 12px;
 }
