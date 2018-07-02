@@ -1,78 +1,67 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Data Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="style.css"/>
+
 </head>
-
 <body>
-  <aside>
+<!-- MENU LATERAL -->
+    <header>
+            <input type="checkbox" id="btn-menu">
+            <label for="btn-menu"><img src="img/iconMenu.png" alt="menu"> </label>
+        <article class="cuerpo-contenedor">
+            <!-- <img id="logo-labo" src="img/laboratoria.png" alt="Logo Laboratoria"> -->
+            <h2>LMS DASHBOARD</h2>
+        </article>
+    </header>
+    <nav id="menu" class="hidden-menu"> 
+        <section id="laboratoria">
+            <img src="img/laboratoria.png" alt="">
+        </section>
+        <section>
+            <img src="img/ale.jpg" alt="">
+            <h2>ALEJANDRA<br>Training manager</h2>
+           
+        </section>
+        
+        <ul>
+            <article id="btn-gral" class="logo-content">
+                    <figure><img class= "logo" src="img/general.png" alt="">
+                    </figure>
+                    <li>GENERAL</li>
+            </article>
 
-  </aside>
-
-  <article>
-
-  </article>
-
-  <!-- <article> -->
-
-
-    
-    
-
-     <!--MENU-->
-    <!-- <aside class="side-dashboard">
-      <section id="icon-menu">
-        <input type="checkbox" class="btn-menu">
-        <label for="btn-menu" ><img src="img/icono.png">
-      </section>
-      <section class="user">
-        <img class="side-user" src="img/user.png">
-        <p>Nombre</p>
-        <p>Training Manager</p>
-      </section>
-      <nav class="nav-general">
-        <ul class="nav">
-          <li class="nav-item">
-            <img src="img/view.png">
-            <a href="#" id="viewGeneral">Vista General</a>
-          </li>
-          <li class="nav-item">
-            <img src="img/student.png">
-            <a href="#" id="student">Alumnas</a>
-          </li>
-          <li class="nav-item">
-            <img src="img/course.png">
-            <a href="#" id="courses">Cursos</a>
-          </li>
+            <article id="btn-students" class="logo-content">
+                    <figure><img class= "logo" src="img/alumnas.png" alt="">
+                    </figure>
+                    <li>ALUMNAS</li>
+            </article>
+                
+            <article id="btn-couses" class="logo-content">
+                        <figure><img class= "logo" src="img/cursos.png" alt="">
+                        </figure>
+                        <li>CURSOS</li>
+            </article>
+                
+            <article id="btn-squads" class="logo-content">
+                        <figure ><img class= "logo" src="img/squad.png" alt="">
+                        </figure>
+                        <li>SQUADS</li>
+            </article>                        
         </ul>
-      </nav>
-    </aside> -->
+    </nav>
+<!-- CONTENIDO -->
+<main>
+    <p>gatp</p>
+    <p>sadsd</p>
+</main>
 
-    <!--CUERPO-->
-    <!-- <article class="principal-dashboard">
-      <header class="banner">
-        <img class="banner-logo" src="img/banner.png">
-      </header>
-      <section class="menu-principal" id="menu">
-        <label>Sedes: </label>
-        <select id="sede">
 
-        </select>
-        <div id="listStudent">
 
-        </div>
-      </section>
-      <section class="menu-graphicos">
-        <p></p>
-
-      </section>
-    </article>
-  </article> -->
-  <script src="data.js"></script>
-  <script src="main.js"></script>
+    
+<script src="main.js"></script>
 </body>
-
 </html>

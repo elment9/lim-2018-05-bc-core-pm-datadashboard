@@ -1,45 +1,53 @@
-const cohortTotal = '../data/cohorts.json',
-      usersLima = '../data/cohorts/lim-2018-03-pre-core-pw/users.json',
-      progressLima = '../data/cohorts/lim-2018-03-pre-core-pw/progress.json';
+// -----MENU DESPLEGABLE-----
+let button = document.getElementById('btn-menu'),
+    general = document.getElementById('btn-gral'),
+    students = document.getElementById('btn-students'),
+    btnCourses = document.getElementById('btn-couses'),
+    squads = document.getElementById('btn-squads');
 
-const getData = (callback) => {
-  fetch(usersLima)
-    .then((responseU) => {
-      fetch(progressLima)
-        .then((responseP) => {
-          fetch(cohortTotal)
-            .then((responseC) => {
-              Promise.all([responseU.json(), responseP.json(), responseC.json()])
-                  .then(dataArr => {
-                    console.log(dataArr);
-                  const [x, y, z] = dataArr;//destructuring de los arrays
-                  callback && callback(x, y, z);//llama a la función
-                })
-            })
-        })
-    })
- }
+const showMenu = () => {
+    let menu = document.getElementById('menu');
+    if(menu.classList.contains('hidden-menu')){
+        // console.log('aquí estoy');
+        menu.classList.remove('hidden-menu');
+        menu.classList.add('show-menu');
+    }
+    else{
+        // console.log('NO toy');
+        menu.classList.remove('show-menu');
+        menu.classList.add('hidden-menu');
+    }    
+}
+button.addEventListener('click', showMenu); 
 
-const callbackGetData = (users,progress,cohorts) => {
-      let cohortsMap = [];//Creo var con arreglo vacío
-      cohorts.forEach(cohort => {//Por cada 
-        cohortsMap[cohort.id] = cohort;
-      });
+// -----GENERAL-----
 
-      // console.log(cohortsMap);
-      // console.log(progressUser.length);
-      // console.log(users.length);
-      let nuevoArray = [];//Nuevo array usuario con todos sus datos
-      users.forEach(user => {//Por cada users crear un user y haz la funcion
-        // console.log(progress[user.id]);
-        let usuario = user;//encierro usuario
-        usuario.progress = progress[user.id];//Como usuario es objeto, creo nueva propiedad y asigno valor
-        usuario.cohort = cohortsMap[user.signupCohort];//Crea propiedad cohort y mete cohort mapeado y le dice  q busque user.sin 
-        
-        nuevoArray[user.id]=usuario;//
-      });
-      console.log(nuevoArray);
-} 
-getData(callbackGetData) 
- 
+const showGeneral = () => {
+    console.log('Muestra general');
+}
+
+general.addEventListener('click', showGeneral);
+
+// -----ESTUDIANTES-----
+const showStudents = () => {
+    console.log('Aquí alumnas');
+}
+
+students.addEventListener('click', showStudents);
+
+// -----CURSOS-----
+
+const showCourses = () => {
+    console.log('Los cursos van aquí');
+}
+
+btnCourses.addEventListener('click', showCourses);
+
+// -----SQUADS-----
+
+const showSquads = () => {
+    console.log('Aquí irían los squads');
+}
+
+squads.addEventListener('click', showSquads);
  

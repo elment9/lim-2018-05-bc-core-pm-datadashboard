@@ -1,8 +1,8 @@
-window.computeUsersStats = (users, progress, courses) => {
+// window.computeUsersStats = (users, progress, courses) => {
 
      
 
-}
+// }
 
 
 
