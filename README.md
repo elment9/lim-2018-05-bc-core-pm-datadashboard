@@ -65,7 +65,7 @@ Lo ideal es que cuado el usuario ingrese muestre, de manera predefinida, los dat
 
 Posee siguientes criterios de filtrado:
 
-  ##### a.1. Sede y Cohort
+  #### a.1. Sede y Cohort
   * Lima 2018 pre core
   * CDMX 2018 pre core
   * GDL 2018 pre core
@@ -76,7 +76,7 @@ Posee siguientes criterios de filtrado:
   * Mañana
   * Tarde
 
-  ##### a.3. Muestra
+  #### a.3. Muestra
   * Cantidad de alumnas
   * Total de cursos
 
@@ -86,14 +86,14 @@ Posee siguientes criterios de filtrado:
 
   Contiene los siguientes criterios de filtrado:
 
-  ##### b.1. Filtrado por
+  #### b.1. Filtrado por
 
   * Completitud total
   * Ejercicios
   * Lecturas
   * Quizzes
 
-  ##### b.2. Ordenar en
+  #### b.2. Ordenar en
 
   * Descendente
   * Ascendente
