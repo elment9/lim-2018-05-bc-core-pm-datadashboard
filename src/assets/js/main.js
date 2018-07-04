@@ -13,7 +13,37 @@ let closeSlideMenu = () =>{
     sideMain.style.marginLeft = '0';
  }
 
-// -----GENERAL-----
+//------ BOTONES MENU------//
+let menuGeneral = document.getElementById('btnShowGeneral');
+let menuStudents = document.getElementById('btnShowStudents');
+let menuProgress = document.getElementById('btnShowProgress');
+let menuSquads = document.getElementById('btnShowSquads');
+
+let selectCampus = document.getElementById('selectCampus');
+
+//---------FETCH-----//
+const getData = (string, url, callback) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.addEventListener('load', event => {
+        if (event.target.readyState === 4) {
+            if (event.target.status === 200) {
+                return console.error(new error())
+            }
+        }
+
+    })
+}
+
+//-------CAMPUS------//
+// const showCampus = () => {}
+
+selectCampus.addEventListener('click', event => {
+
+});
+
+
+// -----GENERAL-----//
 
 const showGeneral = () => {
     console.log('Muestra general');
@@ -21,22 +51,22 @@ const showGeneral = () => {
 
 menuGeneral.addEventListener('click', showGeneral);
 
-// -----ESTUDIANTES-----
+// -----ESTUDIANTES-----//
 const showStudents = () => {
     console.log('Aquí alumnas');
 }
 
 menuStudents.addEventListener('click', showStudents);
 
-// -----CURSOS-----
+// -----PROGRESO-----//
 
-const showCourses = () => {
+const showProgress = () => {
     console.log('Los cursos van aquí');
 }
 
-menuCourses.addEventListener('click', showCourses);
+menuProgress.addEventListener('click', showProgress);
 
-// -----SQUADS-----
+// -----SQUADS-----//
 
 const showSquads = () => {
     console.log('Aquí irían los squads');
