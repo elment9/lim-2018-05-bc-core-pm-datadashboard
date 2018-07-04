@@ -35,17 +35,19 @@ body{
   left:0;
   background-color:#FFE521;
   overflow-x:hidden;
-  padding-top:100px;
-  transition:0.5s;
+  padding-top:50px;
+  transition:0.3s;
 }
 
-.side-nav a{
-  padding:10px 10px 10px 30px;
+.text-icon {
+  /* padding:10px 40px 10px 40px; */
+  margin: 0px;
   text-decoration:none;
-  font-size: 20px;
+  font-size: 18px;
   color: black;
-  display:block;
+  display:flex;
   transition:0.3s;
+  vertical-align: center;
 }
 
 .side-nav a:hover{
@@ -59,10 +61,32 @@ body{
   right:22px;
   font-size:36px;
   margin-left:50px;
+  text-decoration: none;
 }
 
-#main{
-  transition:margin-left 0.5s;
+.icon-menu {
+  margin: 0px;
+  padding-left: 25px;
+}
+
+
+#user-photo {
+  height: 150px;
+  width: auto;
+  border-radius: 100px;
+  display: block;
+  margin-left: 50px;
+ }
+
+.side-nav h2,
+h3{
+  text-align: center;
+  margin: 0px;
+  padding: 3px;
+}
+
+#main {
+  transition:margin-left 0.3s;
   padding:20px;
   overflow:hidden;
   width:100%;

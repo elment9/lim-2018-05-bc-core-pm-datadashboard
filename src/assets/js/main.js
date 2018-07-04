@@ -10,7 +10,7 @@ let openSlideMenu = () => {
 
 let closeSlideMenu = () =>{
     sideMenu.style.width = '0';
-    sideMenu.style.marginLeft = '0';
+    sideMain.style.marginLeft = '0';
  }
 
 // -----GENERAL-----
