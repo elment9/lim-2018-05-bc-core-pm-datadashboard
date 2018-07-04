@@ -14,28 +14,33 @@
         <span class="open-slide">
             <a href="#" onclick="openSlideMenu()">
                 <svg width="30" height="30">
-                    <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
-                    <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
-                    <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+                    <path d="M0,5 30,5" stroke="#ff009e" stroke-width="5" />
+                    <path d="M0,14 30,14" stroke="#ff009e" stroke-width="5" />
+                    <path d="M0,23 30,23" stroke="#ff009e" stroke-width="5" />
                 </svg>
             </a>
+            <img id="logo-lab" alt="banner" src="img/banner.png">
         </span>
 
-
         <span id="side-menu" class="side-nav">
-            <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+            <a class="btn-close" onclick="closeSlideMenu()">&times;</a>
             <img id="user-photo" src="img/ale.jpg" alt="user">
-            <h2>Alejandra</h2>
-            <h3>Training Manager<br>Perú</h3> 
-            <a class="text-icon" href="#"><img class="icon-menu" src="img/general.png" alt=""> GENERAL</a>
-            <a class="text-icon" href="#"><img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
-            <a class="text-icon" href="#"><img class="icon-menu" src="img/cursos.png" alt="">PROGRESO</a>
-            <a class="text-icon" href="#"><img class="icon-menu" src="img/squad.png" alt="">PROGRESO</a>
+            <h3>Alejandra</h3>
+            <p>Training Manager<br>Perú</p>
+            <br>
+            <a id="btnShowGeneral"><img class="icon-menu" src="img/general.png" alt=""> GENERAL</a>
+            <a id="btnShowStudents"><img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
+            <a id="btnShowProgress"><img class="icon-menu" src="img/progreso.png" alt="">PROGRESO</a>
+            <a id="btnShowSquads"><img class="icon-menu" src="img/squad.png" alt="">SQUAD</a>
         </span>
     </nav>
 
-    <section id="main">
-        <h1>LABORATORIA DASHBOARD</h1>
+    <section id="container-principal">
+        <main id="main-campus">
+            <h2>Bienvenidx usuarix</h2>
+            <label>Selecciona el campus</label>
+            <select id="selectCampus"></select>
+        </main>
     </section>
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
