@@ -1,24 +1,17 @@
 // -----MENU DESPLEGABLE-----
-let menuButton = document.getElementById('btn-menu'),
-    menuGeneral = document.getElementById('btn-gral'),
-    menuStudents = document.getElementById('btn-students'),
-    menuCourses = document.getElementById('btn-couses'),
-    menuSquads = document.getElementById('btn-squads');
+let sideMenu = document.getElementById('side-menu'),
+    sideMain = document.getElementById('main');
 
-const showMenu = () => {
-    let menu = document.getElementById('menu');
-    if(menu.classList.contains('hidden-menu')){
-        // console.log('aquí estoy');
-        menu.classList.remove('hidden-menu');
-        menu.classList.add('show-menu');
-    }
-    else{
-        // console.log('NO toy');
-        menu.classList.remove('show-menu');
-        menu.classList.add('hidden-menu');
-    }    
+
+let openSlideMenu = () => {
+    sideMenu.style.width = '250px';
+    sideMain.style.marginLeft = '250px';
 }
-menuButton.addEventListener('click', showMenu); 
+
+let closeSlideMenu = () =>{
+    sideMenu.style.width = '0';
+    sideMenu.style.marginLeft = '0';
+ }
 
 // -----GENERAL-----
 
