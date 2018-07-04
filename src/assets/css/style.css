@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter');
+
+body{
+    width: 100%;
+    height: 100%;
+    font-family: 'Bitter', serif;
+    background-color:#f4f4f4;
+    overflow-x:hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar{ /*BARRA*/
+  background-color:black;
+  overflow:hidden;
+  height:65px;
+}
+
+.navbar a{
+  float:left;
+  display:block;
+  padding:16px;
+}
+
+.navbar a:hover{
+  background-color:#ddd;
+}
+
+.side-nav{
+  height:100%;
+  width:0;
+  position:fixed;
+  /* z-index:1; */
+  top:0;
+  left:0;
+  background-color:#FFE521;
+  overflow-x:hidden;
+  padding-top:100px;
+  transition:0.5s;
+}
+
+.side-nav a{
+  padding:10px 10px 10px 30px;
+  text-decoration:none;
+  font-size: 20px;
+  color: black;
+  display:block;
+  transition:0.3s;
+}
+
+.side-nav a:hover{
+  color:rgb(255, 255, 255);
+  background: #FF009E;
+}
+
+.side-nav .btn-close{
+  position:absolute;
+  top:0;
+  right:22px;
+  font-size:36px;
+  margin-left:50px;
+}
+
+#main{
+  transition:margin-left 0.5s;
+  padding:20px;
+  overflow:hidden;
+  width:100%;
+}
+
+@media(min-width:568px){
+  .navbar-nav{display:block}
+}
+
+@media(min-width:568px){
+  /*.open-slide{display:none}*/
+}
