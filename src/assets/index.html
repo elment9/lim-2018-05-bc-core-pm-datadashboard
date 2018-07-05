@@ -26,21 +26,38 @@
             <a class="btn-close" onclick="closeSlideMenu()">&times;</a>
             <img id="user-photo" src="img/ale.jpg" alt="user">
             <h3>Alejandra</h3>
-            <p>Training Manager<br>Perú</p>
+            <p>Training Manager
+                <br>Perú</p>
             <br>
-            <a id="btnShowGeneral"><img class="icon-menu" src="img/general.png" alt=""> GENERAL</a>
-            <a id="btnShowStudents"><img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
-            <a id="btnShowProgress"><img class="icon-menu" src="img/progreso.png" alt="">PROGRESO</a>
-            <a id="btnShowSquads"><img class="icon-menu" src="img/squad.png" alt="">SQUAD</a>
+            <a id="btnShowGeneral">
+                <img class="icon-menu" src="img/general.png" alt=""> GENERAL</a>
+            <a id="btnShowStudents">
+                <img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
+            <a id="btnShowProgress">
+                <img class="icon-menu" src="img/progreso.png" alt="">PROGRESO</a>
+            <a id="btnShowSquads">
+                <img class="icon-menu" src="img/squad.png" alt="">SQUAD</a>
         </span>
     </nav>
 
     <section id="container-principal">
-        <main id="main-campus">
-            <h2>Bienvenidx usuarix</h2>
-            <label>Selecciona el Campus</label>
-            <select id="selectCampus"></select>
-            <label>Selecciona el Cohorts</label>
+        <main id="main-welcome">
+                <h2>Bienvenidx usuarix</h2>
+        </main>
+            
+        <main id="main-campus" style="display: none;">
+            <h2>Progreso General</h2>
+            <label>Selecciona la sede</label>
+            <select id="selectCampus">
+                <option>Seleccionar...</option>
+                <option value="aqp">Arequipa</option>
+                <option value="cdmx">Ciudad de Mexico</option>
+                <option value="gdl">Guadalajara</option>
+                <option value="lim">Lima</option>
+                <option value="scl">Santiago</option>
+                <option value="spl">Sao Paulo</option>
+            </select>
+            <label>Escoge tu Cohort</label>
             <select id="selectCohorts"></select>
         </main>
     </section>

@@ -1,6 +1,6 @@
 // -----MENU DESPLEGABLE-----
 let sideMenu = document.getElementById('side-menu'),
-    sideMain = document.getElementById('main');
+    sideMain = document.getElementById('container-principal');
 
 
 let openSlideMenu = () => {
@@ -21,13 +21,15 @@ let menuSquads = document.getElementById('btnShowSquads');
 
 let selectCampus = document.getElementById('selectCampus');
 let selectCohorts = document.getElementById('selectCohorts');
+let mainWelcome = document.getElementById('main-welcome');
+let mainCampus = document.getElementById('main-campus');
 
-//---------FETCH-----//
+
+//---------XHR-----//
 const getData = (str, url, callback) => {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.addEventListener('load', event => {
-        console.log(event.target);
         if (event.target.readyState === 4) {
             if (event.target.status !== 200) {
                 return console.error(new Error(`HTTP error: ${event.target.status}`))
@@ -40,39 +42,24 @@ const getData = (str, url, callback) => {
     xhr.send();
 }
 
-//-------CAMPUS: Funcion------//
-const showCampus = (idCampus, arrCampuses) => {
-    const allCampus = arrCampuses.filter(campus => {
-        return campus.id = idCampus;
-    })
-    console.log(idCampus);
-    let contentCampus = '';
-    allCampus.forEach(campus => {
-        contentCampus += `<option value=${campus.id}> ${campus.name}</option>`;
-        selectCampus.innerHTML = contentCampus;
+// //-------COHORTS: Funcion------//
+const showCohorts = (id, arrCohorts) => {
+    const allCohorts = arrCohorts.filter(element => {
+        return element.id.indexOf(id) !== -1;
     });
-}
-//-------CAMPUS: Evento------//
-selectCampus.addEventListener('click', event => {
-    const idCampus = event.target.id;
-    getData(idCampus, 'https://api.laboratoria.la/campuses', showCampus);
-});
-
-//-------CAMPUS: Funcion------//
-const showCohorts = (idCohorts, arrCohorts) => {
-    const allCohorts = arrCohorts.filter(cohorts => {
-        return cohorts.id.indexOf(idCohorts) !== -1;
-    })
+    
     let contentCohorts = '';
-    allCohorts.forEach(element => {
-        contentCohorts += `<option value=${cohorts.id}> ${cohorts.id}</option>`;
-        selectCohorts.innerHTML = contentCohorts;
+
+    allCohorts.forEach(cohort => {
+        contentCohorts += `<option value=${cohort.id}> ${cohort.id}</option>`;
     })
+    selectCohorts.innerHTML = contentCohorts;
 }
-//-------CAMPUS: Evento------//
-selectCohorts.addEventListener('click', event => {
-    const idCohorts = event.target.id;
-    getData(idCohorts, 'https://api.laboratoria.la/cohorts', showCohorts);
+
+
+selectCampus.addEventListener('change', event => {
+    const id = event.target.value;
+    getData(id, 'https://api.laboratoria.la/cohorts/', showCohorts);
 })
 
 // -----GENERAL-----//
@@ -80,25 +67,29 @@ const showGeneral = () => {
     console.log('Muestra general');
 }
 
-menuGeneral.addEventListener('click', showGeneral);
+menuGeneral.addEventListener('click', () => {
+    mainWelcome.style.display = 'none';
+    mainCampus.style.display = 'block';
 
-// -----ESTUDIANTES-----//
-const showStudents = () => {
-    console.log('Aquí alumnas');
-}
+});
 
-menuStudents.addEventListener('click', showStudents);
+// // -----ESTUDIANTES-----//
+// const showStudents = () => {
+//     console.log('Aquí alumnas');
+// }
 
-// -----PROGRESO-----//
-const showProgress = () => {
-    console.log('Los cursos van aquí');
-}
+// menuStudents.addEventListener('click', showStudents);
 
-menuProgress.addEventListener('click', showProgress);
+// // -----PROGRESO-----//
+// const showProgress = () => {
+//     console.log('Los cursos van aquí');
+// }
 
-// -----SQUADS-----//
-const showSquads = () => {
-    console.log('Aquí irían los squads');
-}
+// menuProgress.addEventListener('click', showProgress);
 
-menuSquads.addEventListener('click', showSquads);
+// // -----SQUADS-----//
+// const showSquads = () => {
+//     console.log('Aquí irían los squads');
+// }
+
+// menuSquads.addEventListener('click', showSquads);
