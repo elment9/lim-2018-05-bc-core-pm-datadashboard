@@ -42,23 +42,26 @@
 
     <section id="container-principal">
         <main id="main-welcome">
-                <h2>Bienvenidx usuarix</h2>
+            <h2>Bienvenidx usuarix</h2>
         </main>
-            
+
         <main id="main-campus" style="display: none;">
             <h2>Progreso General</h2>
-            <label>Selecciona la sede</label>
-            <select id="selectCampus">
-                <option>Seleccionar...</option>
-                <option value="aqp">Arequipa</option>
-                <option value="cdmx">Ciudad de Mexico</option>
-                <option value="gdl">Guadalajara</option>
-                <option value="lim">Lima</option>
-                <option value="scl">Santiago</option>
-                <option value="spl">Sao Paulo</option>
-            </select>
-            <label>Escoge tu Cohort</label>
-            <select id="selectCohorts"></select>
+            <article>
+                <div class="detail-one">
+                    <label>Campus</label>
+                    <select id="selectCampus"></select>
+                    <label>Cohort</label>
+                    <select id="selectCohorts" class="select-cohorts">
+                    <option>Selecciona la promocion</option>
+                </select>
+                </div>
+                <div class="detail-two">
+                    <div id="totalUser" class="detail-user"></div>
+                    <div id="totalCourse" class="detail-course"></div>
+                </div>
+                </div>
+            </article>
         </main>
     </section>
     <script src="js/data.js"></script>
