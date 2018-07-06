@@ -22,8 +22,15 @@ let selectCampus = document.getElementById('selectCampus');
 let selectCohorts = document.getElementById('selectCohorts');
 let mainWelcome = document.getElementById('main-welcome');
 let mainCampus = document.getElementById('main-campus');
+let mainStudents = document.getElementById('main-students');
+let mainProgress = document.getElementById('main-progress');
+let mainSquads = document.getElementById('main-squads');
+
 let totalUser = document.getElementById('totalUser');
 let totalCourse = document.getElementById('totalCourse');
+
+
+
 
 //---------XHR--------//
 const getData = (str, url, callback) => {
@@ -88,29 +95,50 @@ selectCampus.addEventListener('change', event => {
     getData(id, 'https://api.laboratoria.la/cohorts/', showCohorts);
 })
 
+
 selectCohorts.addEventListener('change', event => {
     const id = event.target.value;
     getData(id, 'https://api.laboratoria.la/cohorts/', showDetailsGeneral)
     
 })
 
-// // -----ESTUDIANTES-----//
-// const showStudents = () => {
-//     console.log('Aquí alumnas');
-// }
+// -----GENERAL-----//
 
-// menuStudents.addEventListener('click', showStudents);
+menuGeneral.addEventListener('click', () => {
+    mainCampus.style.display = 'block';
+    mainWelcome.style.display = 'none';
+    mainStudents.style.display = 'none';
+    mainProgress.style.display = 'none';
+    mainSquads.style.display ='none';
+
+});
+
+
+// // -----ESTUDIANTES-----//
+menuStudents.addEventListener('click', () => {
+    mainStudents.style.display = 'block';
+    mainCampus.style.display = 'none';
+    mainProgress.style.display = 'none';
+    mainSquads.style.display ='none';
+    mainWelcome.style.display = 'none';
+   
+});
 
 // // -----PROGRESO-----//
-// const showProgress = () => {
-//     console.log('Los cursos van aquí');
-// }
-
-// menuProgress.addEventListener('click', showProgress);
+menuProgress.addEventListener('click', () => {
+    mainProgress.style.display = 'block';
+    mainCampus.style.display = 'none';
+    mainStudents.style.display = 'none';
+    mainSquads.style.display ='none';
+    mainWelcome.style.display = 'none';
+});
 
 // // -----SQUADS-----//
-// const showSquads = () => {
-//     console.log('Aquí irían los squads');
-// }
+menuSquads.addEventListener('click', () => {
+    mainSquads.style.display ='block';
+    mainProgress.style.display = 'none';
+    mainCampus.style.display = 'none';
+    mainStudents.style.display = 'none';
+    mainWelcome.style.display = 'none';
 
-// menuSquads.addEventListener('click', showSquads);
+});
