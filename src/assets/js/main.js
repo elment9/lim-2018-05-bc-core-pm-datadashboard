@@ -23,6 +23,9 @@ let selectCampus = document.getElementById('selectCampus');
 let selectCohorts = document.getElementById('selectCohorts');
 let mainWelcome = document.getElementById('main-welcome');
 let mainCampus = document.getElementById('main-campus');
+let mainStudents = document.getElementById('main-students');
+let mainProgress = document.getElementById('main-progress');
+let mainSquads = document.getElementById('main-squads');
 
 
 //---------XHR-----//
@@ -63,33 +66,41 @@ selectCampus.addEventListener('change', event => {
 })
 
 // -----GENERAL-----//
-const showGeneral = () => {
-    console.log('Muestra general');
-}
 
 menuGeneral.addEventListener('click', () => {
-    mainWelcome.style.display = 'none';
     mainCampus.style.display = 'block';
+    mainWelcome.style.display = 'none';
+    mainStudents.style.display = 'none';
+    mainProgress.style.display = 'none';
+    mainSquads.style.display ='none';
 
 });
 
 // // -----ESTUDIANTES-----//
-// const showStudents = () => {
-//     console.log('Aquí alumnas');
-// }
-
-// menuStudents.addEventListener('click', showStudents);
+menuStudents.addEventListener('click', () => {
+    mainStudents.style.display = 'block';
+    mainCampus.style.display = 'none';
+    mainProgress.style.display = 'none';
+    mainSquads.style.display ='none';
+    mainWelcome.style.display = 'none';
+   
+});
 
 // // -----PROGRESO-----//
-// const showProgress = () => {
-//     console.log('Los cursos van aquí');
-// }
-
-// menuProgress.addEventListener('click', showProgress);
+menuProgress.addEventListener('click', () => {
+    mainProgress.style.display = 'block';
+    mainCampus.style.display = 'none';
+    mainStudents.style.display = 'none';
+    mainSquads.style.display ='none';
+    mainWelcome.style.display = 'none';
+});
 
 // // -----SQUADS-----//
-// const showSquads = () => {
-//     console.log('Aquí irían los squads');
-// }
+menuSquads.addEventListener('click', () => {
+    mainSquads.style.display ='block';
+    mainProgress.style.display = 'none';
+    mainCampus.style.display = 'none';
+    mainStudents.style.display = 'none';
+    mainWelcome.style.display = 'none';
 
-// menuSquads.addEventListener('click', showSquads);
+});
