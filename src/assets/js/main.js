@@ -26,11 +26,9 @@ let mainStudents = document.getElementById('main-students');
 let mainProgress = document.getElementById('main-progress');
 let mainSquads = document.getElementById('main-squads');
 
+//---------GENERAL DATA--------//
 let totalUser = document.getElementById('totalUser');
 let totalCourse = document.getElementById('totalCourse');
-
-
-
 
 //---------XHR--------//
 const getData = (str, url, callback) => {
@@ -49,6 +47,7 @@ const getData = (str, url, callback) => {
     xhr.send();
 }
 
+//---------CAMPUS--------//
 const showCampus = (id, arrCampus) => {
     const allCampuses = arrCampus.filter(element => {
         return element.id;
@@ -73,6 +72,21 @@ const showCohorts = (id, arrCohorts) => {
     selectCohorts.innerHTML = contentCohorts;
 }
 
+//---------GENERAL--------//
+
+//---------GENERAL-BTN--------//
+
+menuGeneral.addEventListener('click', () => {
+    mainCampus.style.display = 'block';
+    mainWelcome.style.display = 'none';
+    mainStudents.style.display = 'none';
+    mainProgress.style.display = 'none';
+    mainSquads.style.display ='none';
+
+});
+
+//---------GENERAL-FUNCIONALIDAD--------//
+
 const showDetailsGeneral = (id, arrCohorts) => {
     arrCohorts.filter(element => {
         if (element.id === id) {
@@ -80,6 +94,10 @@ const showDetailsGeneral = (id, arrCohorts) => {
             totalUser.innerHTML = `<h3>${element.usersCount}</h3><p>Usuarixs</p>`;
             totalCourse.innerHTML = `<h3>${numCourse.length}</h3><p>Cursos</p>`;
         }
+        // else {
+        //     totalUser.innerHTML = `<h3>${element.usersCount}</h3><p>Usuarixs</p>`;
+        //     totalCourse.innerHTML = `<h3>${numCourse.length}</h3><p>Cursos</p>`;
+        // }
     })
 }
 
@@ -95,26 +113,14 @@ selectCampus.addEventListener('change', event => {
     getData(id, 'https://api.laboratoria.la/cohorts/', showCohorts);
 })
 
-
 selectCohorts.addEventListener('change', event => {
     const id = event.target.value;
     getData(id, 'https://api.laboratoria.la/cohorts/', showDetailsGeneral)
     
 })
 
-// -----GENERAL-----//
-
-menuGeneral.addEventListener('click', () => {
-    mainCampus.style.display = 'block';
-    mainWelcome.style.display = 'none';
-    mainStudents.style.display = 'none';
-    mainProgress.style.display = 'none';
-    mainSquads.style.display ='none';
-
-});
-
-
 // // -----ESTUDIANTES-----//
+// -----ESTUDIANTES-BTN-----//
 menuStudents.addEventListener('click', () => {
     mainStudents.style.display = 'block';
     mainCampus.style.display = 'none';
@@ -124,7 +130,9 @@ menuStudents.addEventListener('click', () => {
    
 });
 
+
 // // -----PROGRESO-----//
+// -----PROGRESO-BTN-----//
 menuProgress.addEventListener('click', () => {
     mainProgress.style.display = 'block';
     mainCampus.style.display = 'none';
@@ -134,7 +142,8 @@ menuProgress.addEventListener('click', () => {
 });
 
 // // -----SQUADS-----//
-menuSquads.addEventListener('click', () => {
+ // -----SQUADS - BTN-----//
+ menuSquads.addEventListener('click', () => {
     mainSquads.style.display ='block';
     mainProgress.style.display = 'none';
     mainCampus.style.display = 'none';
