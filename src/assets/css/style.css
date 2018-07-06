@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bitter');
+@import url('https://fonts.googleapis.com/css?family=Bitter:700 | Open+Sans');
 
 body{
     width: 100%;
@@ -29,9 +29,10 @@ body{
 
 #logo-lab {
   width: 300px;
-  height: auto;
+  height: 45px;
   display: block;
-  margin: 12px auto;
+  margin: 10px auto;
+
 }
 
 .side-nav{
@@ -99,6 +100,55 @@ p {
   padding: 5px;
   overflow:hidden;
   width:100%;
+}
+
+h2 {
+  text-align: left;
+  margin: 15px 30px;
+}
+
+article {
+  background-color:#FFE521;
+  width: 55%;
+  height: 180px;
+  border-radius: 10px;
+  margin: 5px auto;
+  padding: 15px;
+}
+.detail-one,
+.detail-two {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0px auto;
+  padding: 15px;
+
+}
+.detail-user,
+.detail-course {
+  background-color: white;
+  border-radius: 5px;
+  width: 30%;
+  height: 100px;
+
+}
+
+h3 {
+  text-align: center;
+  margin: 0px;
+  padding: 5px;
+  font-size: 36px;
+}
+
+p {
+  font-size: 25px;
+}
+
+h3,
+p {
+  font-family: 'Bitter', serif;
+}
+.select-cohorts {
+  width: 35%;
 }
 
 @media(min-width:568px){
