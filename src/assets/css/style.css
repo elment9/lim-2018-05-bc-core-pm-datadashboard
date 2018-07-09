@@ -129,6 +129,13 @@ p {
 .select-cohorts {
   width: 35%;
 }
+
+.icon-promo {
+  padding: 20px;
+display: block;
+margin: auto;
+}
+
 @media(min-width:568px){
   .navbar-nav {
     display:block

@@ -30,17 +30,18 @@
             <br>
             <a id="btnShowGeneral">
                 <img class="icon-menu" src="img/general.png" alt=""> GENERAL</a>
-            <a id="btnShowStudents">
-                <img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
-            <a id="btnShowProgress">
-                <img class="icon-menu" src="img/progreso.png" alt="">PROGRESO</a>
-            <a id="btnShowSquads">
-                <img class="icon-menu" src="img/squad.png" alt="">SQUAD</a>
+                <a id="btnShowStudents">
+                    <img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
+                    <a id="btnShowProgress">
+                        <img class="icon-menu" src="img/progreso.png" alt="">PROGRESO</a>
+                        <a id="btnShowSquads">
+                            <img class="icon-menu" src="img/squad.png" alt="">SQUAD</a>
         </span>
     </nav>
     <section id="container-principal">
         <main id="main-welcome">
             <h2>Bienvenidx usuarix</h2>
+            <img class="icon-promo" src="img/promo.png">
         </main>
 
         <main id="main-campus" style="display: none;">
@@ -49,7 +50,7 @@
                 <div class="detail-one">
                     <label>Campus</label>
                     <select id="selectCampus">
-                        <!-- <option>Selecciona la sede</option> -->
+                        <option value="sede">sede</option>
                     </select>
                     <label>Cohort</label>
                     <select id="selectCohorts" class="select-cohorts">
@@ -62,7 +63,12 @@
                 </div>
                 </div>
             </article>
+            <!-- Pintar la data -->
+            <div id="container">
+            </div>
         </main>
+
+
 
         <main id="main-students" style="display: none;">
             <h2>Estudiantes</h2>
