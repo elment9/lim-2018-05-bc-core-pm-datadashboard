@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DATADASHBORAD</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <span class="open-slide">
+            <a href="#" onclick="openSlideMenu()">
+                <svg width="30" height="30">
+                    <path d="M0,5 30,5" stroke="#ff009e" stroke-width="5" />
+                    <path d="M0,14 30,14" stroke="#ff009e" stroke-width="5" />
+                    <path d="M0,23 30,23" stroke="#ff009e" stroke-width="5" />
+                </svg>
+            </a>
+            <img id="logo-lab" alt="banner" src="img/banner.png">
+        </span>
+        <span id="side-menu" class="side-nav">
+            <a class="btn-close" onclick="closeSlideMenu()">&times;</a>
+            <img id="user-photo" src="img/ale.jpg" alt="user">
+            <h3>Alejandra</h3>
+            <p>Training Manager
+                <br>Perú</p>
+            <br>
+            <a id="btnShowGeneral">
+                <img class="icon-menu" src="img/general.png" alt=""> GENERAL</a>
+            <a id="btnShowStudents">
+                <img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
+            <a id="btnShowProgress">
+                <img class="icon-menu" src="img/progreso.png" alt="">PROGRESO</a>
+            <a id="btnShowSquads">
+                <img class="icon-menu" src="img/squad.png" alt="">SQUAD</a>
+        </span>
+    </nav>
+    <section id="container-principal">
+        <main id="main-welcome">
+            <h2>Bienvenidx usuarix</h2>
+        </main>
+
+        <main id="main-campus" style="display: none;">
+            <h2>Progreso General</h2>
+            <article>
+                <div class="detail-one">
+                    <label>Campus</label>
+                    <select id="selectCampus">
+                        <!-- <option>Selecciona la sede</option> -->
+                    </select>
+                    <label>Cohort</label>
+                    <select id="selectCohorts" class="select-cohorts">
+                        <option>Selecciona la promocion</option>
+                    </select>
+                </div>
+                <div class="detail-two">
+                    <div id="totalUser" class="detail-user"></div>
+                    <div id="totalCourse" class="detail-course"></div>
+                </div>
+                </div>
+            </article>
+        </main>
+
+        <main id="main-students" style="display: none;">
+            <h2>Estudiantes</h2>
+        </main>
+
+        <main id="main-progress" style="display: none;">
+            <h2>Progreso</h2>
+        </main>
+
+        <main id="main-squads" style="display: none;">
+            <h2>Squad</h2>
+        </main>
+    </section>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
