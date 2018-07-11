@@ -109,86 +109,86 @@ window.computeUsersStats = (users, progress, courses) => {
 
 //   //Creando la funcion sortUsers
 window.sortUsers = (users, orderBy, orderDirection) => {
-    //     let sorted = users;
+        // let sorted = users;
 
-    //     if (orderBy === 'Nombre') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.name.localeCompare(b.name)
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.name.localeCompare(b.name) * -1
-    //         })
-    //       }
-    //     }
+        // if (orderBy === 'Nombre') {
+        //   if (orderDirection === 'ASC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.name.localeCompare(b.name)
+        //     })
+        //   }
+        //   if (orderDirection === 'DESC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.name.localeCompare(b.name) * -1
+        //     })
+        //   }
+        // }
 
-    //     if (orderBy === 'Porcentaje de completitud total') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.percent - b.stats.percent
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.percent - b.stats.percent
-    //         }).reverse();
-    //       }
-    //     }
+        // if (orderBy === 'Porcentaje de completitud total') {
+        //   if (orderDirection === 'ASC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.stats.percent - b.stats.percent
+        //     })
+        //   }
+        //   if (orderDirection === 'DESC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.stats.percent - b.stats.percent
+        //     }).reverse();
+        //   }
+        // }
 
-    //     if (orderBy === 'Porcentaje de Ejercicios completados') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.exercises.percent - b.stats.exercises.percent
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.exercises.percent - b.stats.exercises.percent
-    //         }).reverse();
-    //       }
-    //     }
+        // if (orderBy === 'Porcentaje de Ejercicios completados') {
+        //   if (orderDirection === 'ASC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.stats.exercises.percent - b.stats.exercises.percent
+        //     })
+        //   }
+        //   if (orderDirection === 'DESC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.stats.exercises.percent - b.stats.exercises.percent
+        //     }).reverse();
+        //   }
+        // }
 
-    //     if (orderBy === 'Porcentaje de Quizzes completados') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.quizzes.percent - b.stats.quizzes.percent
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.quizzes.percent - b.stats.quizzes.percent
-    //         }).reverse();
-    //       }
-    //     }
+        // if (orderBy === 'Porcentaje de Quizzes completados') {
+        //   if (orderDirection === 'ASC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.stats.quizzes.percent - b.stats.quizzes.percent
+        //     })
+        //   }
+        //   if (orderDirection === 'DESC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.stats.quizzes.percent - b.stats.quizzes.percent
+        //     }).reverse();
+        //   }
+        // }
 
-    //     if (orderBy === 'Puntuacion Promedio de Quizzes completados') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.quizzes.scoreAvg - b.stats.quizzes.scoreAvg
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.quizzes.scoreAvg - b.stats.quizzes.scoreAvg
-    //         }).reverse();
-    //       }
-    //     }
+        // if (orderBy === 'Puntuacion Promedio de Quizzes completados') {
+        //   if (orderDirection === 'ASC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.stats.quizzes.scoreAvg - b.stats.quizzes.scoreAvg
+        //     })
+        //   }
+        //   if (orderDirection === 'DESC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.stats.quizzes.scoreAvg - b.stats.quizzes.scoreAvg
+        //     }).reverse();
+        //   }
+        // }
 
-    //     if (orderBy === 'Porcentaje de lecturas completados') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.reads.percent - b.stats.reads.percent
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.reads.percent - b.stats.reads.percent
-    //         }).reverse();
-    //       }
-    //     }
-    //     return sorted;
+        // if (orderBy === 'Porcentaje de lecturas completados') {
+        //   if (orderDirection === 'ASC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.stats.reads.percent - b.stats.reads.percent
+        //     })
+        //   }
+        //   if (orderDirection === 'DESC') {
+        //     sorted = users.sort((a, b) => {
+        //       a.stats.reads.percent - b.stats.reads.percent
+        //     }).reverse();
+        //   }
+        // }
+        // return sorted;
 };
 
 //   //Creando la funcion filterUsers
