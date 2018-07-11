@@ -46,6 +46,11 @@ body {
     padding: 10px;
 }
 
+#log-logo {
+    vertical-align: middle;
+    width: 120%;
+}
+
 .loginLab input {
     width: 100%;
     margin-bottom: 0px 20px;

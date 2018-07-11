@@ -139,11 +139,17 @@ const showProgress = (idCohort, objProgress) => {
     let usersStats = processCohortData(options);
     // tableStudent.innerHTML = printData(users);
     let template = '';
-    usersStats.forEach((objUsersStats) => {
-        template += `<div id=${objUsersStats.name}>${objUsersStats.name}</div>
-        <div id=${objUsersStats.stats.exercises.completed}>${Math.floor(objUsersStats.stats.exercises.completed)}</div>
-        <div id=${objUsersStats.stats.exercises.total} >${Math.floor(objUsersStats.stats.exercises.total)}</div>
-        ` 
+    usersStats.forEach((user) => {
+        template += ` <tr>
+            <td id='name'> ${user.name} </td>
+            <td> ${user.stats.percent} </td>
+            <td> ${user.stats.exercises.percent} </td>
+            <td> ${user.stats.quiz.percent} </td>
+            <td> ${user.stats.quiz.scoreSum} </td>
+            <td> ${user.stats.quiz.scoreAvg} </td>
+            <td> ${user.stats.reads.percent} </td>
+         </tr>
+        `
     });
     container.innerHTML = template;
 }
@@ -188,10 +194,6 @@ selectCohorts.addEventListener('change', event => {
 
 // -----ESTUDIANTES-BTN-----//
 menuStudents.addEventListener('click', event => {
-    event.preventDefault();
-    const id = event.target.id;
-    console.log(id);
-
     mainStudents.style.display = 'block';
     mainCampus.style.display = 'none';
     mainProgress.style.display = 'none';

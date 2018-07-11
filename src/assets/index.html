@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DATADASHBORAD</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> -->
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 
 <body>
@@ -41,7 +43,6 @@
     <section id="container-principal">
         <main id="main-welcome">
             <h2>Bienvenidx usuarix</h2>
-            <img class="icon-promo" src="img/promo.png">
         </main>
 
         <main id="main-campus" style="display: none;">
@@ -50,7 +51,7 @@
                 <div class="detail-one">
                     <label>Campus</label>
                     <select id="selectCampus">
-                        <option value="sede">sede</option>
+                        <option value="sede">Selecciona la sede</option>
                     </select>
                     <label>Cohort</label>
                     <select id="selectCohorts" class="select-cohorts">
@@ -64,7 +65,10 @@
                 </div>
             </article>
             <!-- Pintar la data -->
-            <div id="container">
+            <div>
+                <table id="container">
+                    
+                </table>
             </div>
         </main>
 
@@ -82,8 +86,10 @@
             <h2>Squad</h2>
         </main>
     </section>
+    
     <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main2.js"></script>
+    <!-- <script src="js/main.js"></script> -->
 </body>
 
 </html>

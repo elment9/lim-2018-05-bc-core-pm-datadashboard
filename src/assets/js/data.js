@@ -1,73 +1,82 @@
 window.computeUsersStats = (users, progress, courses) => {
 
-    // let usersWithStats = users.filter(objUser =>
-    //     objUser.role === 'student'
-    // );
+    let usersWithStats = users.filter(user =>
+        user.role === 'student'
+    );
 
-    users.forEach(user => {
-        let idUser = user.id;
+    usersWithStats.map(user => {
+        let progressUser = progress[user.id];
+
         courses.forEach(nameCourse => {
-            const progressUser = progress[idUser];
+
             if (progressUser.hasOwnProperty(nameCourse)) {
                 let sumaPercent = 0,
-                    countExercises = 0,
+                    totalExercises = 0,
                     completedExercises = 0,
-                    countReads = 0,
+                    totalReads = 0,
                     completedReads = 0,
-                    countQuiz = 0,
+                    totalQuiz = 0,
                     completedQuiz = 0,
-                    countScoreSum = 0;
+                    totalScoreSum = 0;
 
                 sumaPercent += sumaPercent + progressUser[nameCourse].percent;
 
                 const unitsCourse = Object.values(progressUser[nameCourse].units);
+
                 unitsCourse.forEach(objUnitsCourse => {
                     const partsUnits = Object.values(objUnitsCourse.parts);
+
                     partsUnits.forEach(part => {
                         if (part.type === 'read') {
-                            countReads++;
-                            if (part.completed === 1) {
-                                completedReads++;
+                            completedReads += part.completed;
+                            totalReads++;
+                        }
+
+                        if (part.type === 'practice') {
+                            if (part.hasOwnProperty('exercises')) {
+                                const exerciseCompleted = Object.values(part.exercises)
+                                exerciseCompleted.forEach(exercise => {
+                                    completedExercises += exercise.completed;
+                                    totalExercises++;
+                                })
                             }
                         }
 
-                        if (part.type === 'practice' && part.hasOwnProperty('exercises')) {
-                            let objExercises = Object.keys(part.exercises);
-                            countExercises += objExercises.length;
-                            completedExercises += part.completed;
-                        }
-
                         if (part.type === 'quiz') {
-                            countQuiz++;
-                            if (part.completed === 1 && part.hasOwnProperty('score')) {
-                                completedQuiz++;
-                                countScoreSum += part.score;
+                            completedQuiz += part.completed;
+                            totalQuiz++;
+                            if (part.hasOwnProperty('score')) {
+                                totalScoreSum += part.score;
                             }
                         }
 
                     })
-                })
-                user.stats = {
-                    percent: Math.round(sumaPercent / (courses.length)),
-                    exercises: {
-                        total: countExercises,
-                        completed: completedExercises,
-                        percent: Math.round((completedExercises * 100) % countExercises),
-                    },
-                    reads: {
-                        total: countReads,
-                        completed: completedReads,
-                        percent: Math.round((completedReads * 100) / countReads),
-                    },
-                    quiz: {
-                        total: countQuiz,
-                        completed: completedQuiz,
-                        percent: Math.round((completedQuiz * 100) / countQuiz),
-                        scoreSum: countScoreSum,
-                        scoreAvg: Math.round(countScoreSum / completedQuiz),
-                    }
-                };
+
+                    user.stats = {
+                        name: user.name,
+                        percent: Math.round(sumaPercent / (courses.length)),
+                        exercises: {
+                            total: totalExercises,
+                            completed: completedExercises,
+                            percent: parseInt(((completedExercises * 100) / totalExercises || 0).toFixed()),
+                        },
+                        reads: {
+                            total: totalReads,
+                            completed: completedReads,
+                            percent: parseInt(((completedReads * 100) / totalReads || 0).toFixed()),
+                        },
+                        quiz: {
+                            total: totalQuiz,
+                            completed: completedQuiz,
+                            percent: parseInt(((completedQuiz * 100) / totalQuiz || 0).toFixed()),
+                            scoreSum: totalScoreSum,
+                            scoreAvg: parseInt((totalScoreSum / completedQuiz || 0).toFixed()),
+                        }
+                    };
+                }
+                )
             }
+
             else {
                 user.stats = {
                     percent: 0,
@@ -91,11 +100,11 @@ window.computeUsersStats = (users, progress, courses) => {
                 };
             }
 
+
         });
     })
-    console.log(users);
-    return users;
-
+    // console.log(usersWithStats);
+    return usersWithStats;
 };
 
 //   //Creando la funcion sortUsers
@@ -191,11 +200,11 @@ window.filterUsers = (users, search) => {
 
 //   //Creando la funcion processCohortData
 window.processCohortData = (options) => {
-    console.log(options);
     const courses = Object.keys(options.cohort.coursesIndex);
-    const { users, progress } = options.cohortData;
+    // const { users, progress } = options.cohortData;
     const studentsStats = computeUsersStats(options.cohortData.users, options.cohortData.progress, courses);
     // students = sortUsers(students, orderBy, orderDirection);
     // search = students = filterUsers(students, search);
     // return students;
+    return studentsStats;
 };

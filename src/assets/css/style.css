@@ -136,6 +136,7 @@ display: block;
 margin: auto;
 }
 
+
 @media(min-width:568px){
   .navbar-nav {
     display:block
