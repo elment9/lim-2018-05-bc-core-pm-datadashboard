@@ -124,8 +124,28 @@ window.computeUsersStats = (users, progress, courses) => {
     return users;
 };
 
+const sortByName = (a,b) => {
+    if (a.name.toUpperCase() > b.name.toUpperCase()) {
+        return 1;
+    }
+    if (a.name.toUpperCase() < b.name.toUpperCase()) {
+        return -1;
+    }
+    return 0;
+  }
+
 //   //Creando la funcion sortUsers
-window.sortUsers = (users, orderBy, orderDirection) => {
+
+window.sortUsers = (students, orderBy, orderByDirection) => {
+    let studentsSort = students;
+    if (orderBy === 'name'){
+        studentsSort = students.sort(sortByName);
+    }
+
+    
+    return studentsSort;
+
+
     //     let sorted = users;
 
     //     if (orderBy === 'Nombre') {
@@ -220,5 +240,7 @@ window.processCohortData = (options) => {
     const courses = Object.keys(options.cohort.coursesIndex);
     let students= computeUsersStats(options.cohortData.users,options.cohortData.progress,courses);    // students = sortUsers(students, orderBy, orderDirection);
     // search = students = filterUsers(students, search);
-    return students;
+    
+    let studentsOrder = sortUsers (students, 'name', 'desc');
+    return studentsOrder;
 };
