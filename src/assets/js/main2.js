@@ -29,10 +29,9 @@ const selectCohorts = document.getElementById('selectCohorts');
 const totalUser = document.getElementById('totalUser');
 const totalCourse = document.getElementById('totalCourse');
 
-let tableStudent = document.getElementById('tableStudent');
-let container = document.getElementById('container');
+const listTableStudent = document.getElementById('listTable');
 
-let options = {
+options = {
     cohort: null,
     cohortData: {
         users: null,
@@ -72,39 +71,33 @@ menuGeneral.addEventListener('click', e => {
     mainSquads.style.display = 'none';
 })
 
+// const showData = (str, array) => {
+//     let template = '';
+
+//     array.forEach(students => {
+//         // if (students.role === 'student') {
+//         template +=
+//             `<tr>
+//             <td> ${students.name} </td>
+//             <td> ${students.stats.percent} </td>
+//             <td> ${students.stats.exercises.percent} </td>
+//             <td> ${students.stats.quiz.percent} </td>
+//             <td> ${students.stats.quiz.scoreSum} </td>
+//             <td> ${students.stats.quiz.scoreAvg} </td>
+//             <td> ${students.stats.reads.percent} </td>
+//          </tr>`;
+//         // }
+//     });
+//     // return template;
+//     listTableStudent.innerHTML = template;
+// }
+
 const showProgress = (str, obj) => {
     // console.log(str);
     // console.log(obj);
     options.cohortData.progress = obj;
-    let usersStats = processCohortData(options);
-    let template = '';
-    template += `
-    <tr>
-    <td>Nombre</td>
-    <td>Porcentaje</td>
-    <td>Ejercicio %</td>
-    <td>Quiz %</td>
-    <td>Quiz Score</td>
-    <td>Quiz AVG</td>
-    <td>Lecturas %</td>
-    </tr>
-    `
-
-    usersStats.forEach((user) => {
-        template +=
-        ` <tr>
-            <td id='name'> ${user.name} </td>
-            <td> ${user.stats.percent} </td>
-            <td> ${user.stats.exercises.percent} </td>
-            <td> ${user.stats.quiz.percent} </td>
-            <td> ${user.stats.quiz.scoreSum} </td>
-            <td> ${user.stats.quiz.scoreAvg} </td>
-            <td> ${user.stats.reads.percent} </td>
-         </tr>
-         `
-
-    });
-    container.innerHTML = template;
+    usersWithStats = processCohortData(options);
+    console.log(usersWithStats);
 }
 
 const showUsers = (str, arr) => {

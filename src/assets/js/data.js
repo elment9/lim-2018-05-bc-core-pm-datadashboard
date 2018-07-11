@@ -1,110 +1,127 @@
 window.computeUsersStats = (users, progress, courses) => {
 
-    let usersWithStats = users.filter(user =>
-        user.role === 'student'
-    );
-
-    usersWithStats.map(user => {
+    users.forEach(user => {
         let progressUser = progress[user.id];
 
-        courses.forEach(nameCourse => {
+        if (JSON.stringify(progressUser) === '{}') {
+            user.stats = {
+                percent: 0,
+                exercises: {
+                    total: 0,
+                    completed: 0,
+                    percent: 0,
+                },
+                reads: {
+                    total: 0,
+                    completed: 0,
+                    percent: 0,
+                },
+                quizzes: {
+                    total: 0,
+                    completed: 0,
+                    percent: 0,
+                    scoreSum: 0,
+                    scoreAvg: 0,
+                }
+            };
+        }
+        else {
+            // iniciar contadores
+            let percentTotal = 0,
+                totalExercises = 0,
+                completedExercises = 0,
+                percentExercises = 0,
+                totalReads = 0,
+                completedReads = 0,
+                percentReads = 0,
+                totalQuiz = 0,
+                completedQuiz = 0,
+                percentQuiz = 0,
+                scoreSum = 0;
 
-            if (progressUser.hasOwnProperty(nameCourse)) {
-                let sumaPercent = 0,
-                    totalExercises = 0,
-                    completedExercises = 0,
-                    totalReads = 0,
-                    completedReads = 0,
-                    totalQuiz = 0,
-                    completedQuiz = 0,
-                    totalScoreSum = 0;
+            courses.forEach(course => {
+                // const progressCourse = progressUser.hasOwnProperty(course);
+                if (progressUser.hasOwnProperty(course)) {
+                    percentTotal += progressUser[course].percent / (courses.length);
+                }
 
-                sumaPercent += sumaPercent + progressUser[nameCourse].percent;
-
-                const unitsCourse = Object.values(progressUser[nameCourse].units);
-
-                unitsCourse.forEach(objUnitsCourse => {
-                    const partsUnits = Object.values(objUnitsCourse.parts);
-
+                const unitsCourse = Object.values(progressUser[course].units);
+                unitsCourse.forEach(unit => {
+                    const partsUnits = Object.values(unit.parts);
                     partsUnits.forEach(part => {
-                        if (part.type === 'read') {
-                            completedReads += part.completed;
-                            totalReads++;
-                        }
+                        //aca recorremos cada parte de cada unidad de cada curso, las partes pueden ser lecturas, quizes, exercise, etc
+                        //en este caso si la part.length = 0 quiere decir que NO tiene datos en su interior 
+                        //asi que para que los contadores no se aumenten, se les da el valor de cero y se define aqui para asegurar que siempre los porcentajes den al menos cero
+                        // if (part.length === 0) {
+                        //     totalExercises = 0;
+                        //     totalReads = 0;
+                        //     totalQuiz = 0;
+                        //     percentExercises = 0;
+                        //     percentReads = 0;
+                        //     percentQuiz = 0;
+                        // }
 
                         if (part.type === 'practice') {
-                            if (part.hasOwnProperty('exercises')) {
-                                const exerciseCompleted = Object.values(part.exercises)
-                                exerciseCompleted.forEach(exercise => {
-                                    completedExercises += exercise.completed;
-                                    totalExercises++;
-                                })
-                            }
+                            totalExercises++;
                         }
+                        if (part.type === 'practice'&& part.hasOwnProperty('exercises')) {
+                            const exerciseCompleted = Object.values(part.exercises)
+                            exerciseCompleted.forEach(exercise => {
+                                if (exercise.completed === 1) {
+                                    completedExercises++;
+                                }
+                            })
+                        }
+                        percentExercises = parseInt(((completedExercises * 100) / totalExercises).toFixed());
+
+                        if (part.type === 'read') {
+                            totalReads++;
+                        }
+                        if (part.type === 'read' && part.completed === 1) {
+                            completedReads++;
+                        }
+                        percentReads = parseInt(((completedReads * 100) / totalReads).toFixed());
 
                         if (part.type === 'quiz') {
-                            completedQuiz += part.completed;
                             totalQuiz++;
-                            if (part.hasOwnProperty('score')) {
-                                totalScoreSum += part.score;
-                            }
                         }
+                        if (part.type === 'quiz' && part.completed === 1) {
+                            completedQuiz++;
+                            scoreSum += part.score;
+                        }
+                        percentQuiz = parseInt(((completedQuiz * 100) / totalQuiz).toFixed());
 
                     })
+                    return partsUnits;
+                })
+                //Termina el if
+            })
+            //Sacar el % fuera del forEach para evitar que recalcule
+            scoreAvg = parseInt((scoreSum / completedQuiz).toFixed());
 
-                    user.stats = {
-                        name: user.name,
-                        percent: Math.round(sumaPercent / (courses.length)),
-                        exercises: {
-                            total: totalExercises,
-                            completed: completedExercises,
-                            percent: parseInt(((completedExercises * 100) / totalExercises || 0).toFixed()),
-                        },
-                        reads: {
-                            total: totalReads,
-                            completed: completedReads,
-                            percent: parseInt(((completedReads * 100) / totalReads || 0).toFixed()),
-                        },
-                        quiz: {
-                            total: totalQuiz,
-                            completed: completedQuiz,
-                            percent: parseInt(((completedQuiz * 100) / totalQuiz || 0).toFixed()),
-                            scoreSum: totalScoreSum,
-                            scoreAvg: parseInt((totalScoreSum / completedQuiz || 0).toFixed()),
-                        }
-                    };
+            user.stats = {
+                percent: percentTotal,
+                exercises: {
+                    total: totalExercises,
+                    completed: completedExercises,
+                    percent: percentExercises,
+                },
+                reads: {
+                    total: totalReads,
+                    completed: completedReads,
+                    percent: percentReads,
+                },
+                quizzes: {
+                    total: totalQuiz,
+                    completed: completedQuiz,
+                    percent: percentQuiz,
+                    scoreSum: scoreSum,
+                    scoreAvg: scoreAvg,
                 }
-                )
-            }
-
-            else {
-                user.stats = {
-                    percent: 0,
-                    exercises: {
-                        total: 0,
-                        completed: 0,
-                        percent: 0,
-                    },
-                    reads: {
-                        total: 0,
-                        completed: 0,
-                        percent: 0,
-                    },
-                    quiz: {
-                        total: 0,
-                        completed: 0,
-                        percent: 0,
-                        scoreSum: 0,
-                        scoreAvg: 0,
-                    }
-                };
-            }
-
-
-        });
-    })
-    // console.log(usersWithStats);
-    return usersWithStats;
+            };
+        } //Fin del else    
+    })//Termina user forEach
+    return users;
 };
 
 //   //Creando la funcion sortUsers
@@ -201,10 +218,9 @@ window.filterUsers = (users, search) => {
 //   //Creando la funcion processCohortData
 window.processCohortData = (options) => {
     const courses = Object.keys(options.cohort.coursesIndex);
-    // const { users, progress } = options.cohortData;
-    const studentsStats = computeUsersStats(options.cohortData.users, options.cohortData.progress, courses);
+    const { users, progress } = options.cohortData;
+    computeUsersStats(options.cohortData.users, options.cohortData.progress, courses);
     // students = sortUsers(students, orderBy, orderDirection);
     // search = students = filterUsers(students, search);
     // return students;
-    return studentsStats;
 };
