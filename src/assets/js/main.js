@@ -20,8 +20,8 @@ const menuSquads = document.getElementById('btnShowSquads');
 const tableStudent = document.getElementById('tableStudent');
 let selectCampus = document.getElementById('selectCampus');
 let selectCohorts = document.getElementById('selectCohorts');
-let selectOrderBy = document.getElementById('orderBy');
-let selectOrderByDir = document.getElementById('direction');
+// let selectOrderBy = document.getElementById('orderBy');
+// let selectOrderByDir = document.getElementById('direction');
 
 let mainWelcome = document.getElementById('main-welcome');
 let mainCampus = document.getElementById('main-campus');
@@ -203,7 +203,7 @@ selectCohorts.addEventListener('change', event => {
 
 })
 
-// selectOrderByDir.addEventListener('change',showOrderByDir);
+selectOrderByDir.addEventListener('change',showOrderByDir);
 
 // -----ESTUDIANTES-BTN-----//
 menuStudents.addEventListener('click', event => {
