@@ -20,6 +20,8 @@ const menuSquads = document.getElementById('btnShowSquads');
 const tableStudent = document.getElementById('tableStudent');
 let selectCampus = document.getElementById('selectCampus');
 let selectCohorts = document.getElementById('selectCohorts');
+// let selectOrderBy = document.getElementById('orderBy');
+// let selectOrderByDir = document.getElementById('direction');
 
 let mainWelcome = document.getElementById('main-welcome');
 let mainCampus = document.getElementById('main-campus');
@@ -109,7 +111,7 @@ const showCohorts = (id, arrCohorts) => {
 
     let contentCohorts = '';
     allCohorts.forEach(cohort => {
-        contentCohorts += `<option value=${cohort.id}> ${cohort.id}</option>`;
+        contentCohorts = `<option value=${cohort.id}> ${cohort.id}</option>`;
     })
     selectCohorts.innerHTML = contentCohorts;
 }
@@ -160,6 +162,15 @@ const showUsers = (idCohort, arrUser) => {
 }
 
 
+
+// const showOrderByDir = () => {
+//     let optionsSelect = '';
+//     optionsSelect += `<option value=${asc}> ${Ascendente}</option>`;
+
+//     selectOrderByDir.innerHTML = optionsSelect;
+
+// }
+
 //---------EVENTOS--------//
 menuGeneral.addEventListener('click', event => {
     event.preventDefault();
@@ -191,6 +202,8 @@ selectCohorts.addEventListener('change', event => {
     getData(id, `https://api.laboratoria.la/cohorts/${id}/progress`, showProgress);
 
 })
+
+selectOrderByDir.addEventListener('change',showOrderByDir);
 
 // -----ESTUDIANTES-BTN-----//
 menuStudents.addEventListener('click', event => {

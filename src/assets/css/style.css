@@ -113,6 +113,11 @@ article {
   width: 30%;
   height: 100px;
 }
+
+.filterData {
+  text-align: left;
+  margin: 15px 30px;
+}
 h3 {
   text-align: center;
   margin: 0px;

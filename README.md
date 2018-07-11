@@ -20,9 +20,9 @@ LMS (Learning Management System) de Laboratoria.
 
   Antes de definir el 'contenido necesario' se realizaron tres entrevistas a la TM de Laboratoria Lima. 
 
-  #### 4.1.1.Preguntas
+  ### 4.1.1.Preguntas
 
-  #### Primera entrevista (Sketch)
+#### Primera entrevista (Sketch)
 
   **Motivaciones:** Identificando metas y motivaciones (¿Qué les importa a tus usuarios o  qué los motiva?)
   ¿Cuáles son tus metas como T.M.?
@@ -65,44 +65,44 @@ Lo ideal es que cuado el usuario ingrese muestre, de manera predefinida, los dat
 
 Posee siguientes criterios de filtrado:
 
-  #### a.1. Sede y Cohort
+#### a.1. Sede y Cohort
   * Lima 2018 pre core
   * CDMX 2018 pre core
   * GDL 2018 pre core
   * Sao Paulo pre core
   * SDC pre core 
 
-  ##### a.2. Turno
+#### a.2. Turno
   * Mañana
   * Tarde
 
-  #### a.3. Muestra
+#### a.3. Muestra
   * Cantidad de alumnas
   * Total de cursos
 
- #### B. Alumnas
+#### B. Alumnas
 
  Pestaña que muestra el desempeño de las estudiantes. Brinda más opciones de filtrado y brinda la opción de ver la data de de cada usuario por separado. 
 
   Contiene los siguientes criterios de filtrado:
 
-  #### b.1. Filtrado por
+#### b.1. Filtrado por
 
   * Completitud total
   * Ejercicios
   * Lecturas
   * Quizzes
 
-  #### b.2. Ordenar en
+#### b.2. Ordenar en
 
   * Descendente
   * Ascendente
 
- #### C.Curso
+#### C. Curso
 
  Ofrece detalles sobre cursos (unidades, avance)
 
- #### D.Squad (contenido brinda valor agregado)
+#### D.Squad (contenido brinda valor agregado)
 
  Como su nombre lo dice, ofrece la posibilidad de organizar a las alumnas por squads. Dado que los equipos cambian constantemente, no se han asignado grupos de forma predeterminada, el usuario podrá organizarlos dándole un número(de equipo) a cada alumna.Por ejemplo: Asignan a Ana y Juana con el número 2, y María y Luisa número 1. Al hacer clic en 'ver resultados' aparecerán dos cuadros: estadísticas del squad 1 y 2.
 
@@ -133,7 +133,7 @@ cierto dinamismo, que simula la interación con el usuario.
 
 Pueden ver el **PROTOTIPO DINÁMICO** en Marvel [**AQUÍ**](https://marvelapp.com/177cdbf6/screen/44209192)
 
-### Prototipo ideal
+### Prototipo de alta fidelidad
 
 Este prototipo se desarrolló con las recomendaciones dadas por Alejandra. Pueden ver el **PROTOTIPO DINÁMICO** en Marvel [**AQUÍ**](https://marvelapp.com/3jd5hc3/screen/45119589)
 
