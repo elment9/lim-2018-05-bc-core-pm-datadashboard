@@ -8,7 +8,7 @@
     <title>DATADASHBORAD</title>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> -->
     <link rel="stylesheet" href="css/style.css">
-    
+
 </head>
 
 <body>
@@ -32,12 +32,12 @@
             <br>
             <a id="btnShowGeneral">
                 <img class="icon-menu" src="img/general.png" alt=""> GENERAL</a>
-                <a id="btnShowStudents">
-                    <img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
-                    <a id="btnShowProgress">
-                        <img class="icon-menu" src="img/progreso.png" alt="">PROGRESO</a>
-                        <a id="btnShowSquads">
-                            <img class="icon-menu" src="img/squad.png" alt="">SQUAD</a>
+            <a id="btnShowStudents">
+                <img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
+            <a id="btnShowProgress">
+                <img class="icon-menu" src="img/progreso.png" alt="">PROGRESO</a>
+            <a id="btnShowSquads">
+                <img class="icon-menu" src="img/squad.png" alt="">SQUAD</a>
         </span>
     </nav>
     <section id="container-principal">
@@ -62,34 +62,33 @@
                     <div id="totalUser" class="detail-user"></div>
                     <div id="totalCourse" class="detail-course"></div>
                 </div>
-                
+
             </article>
-            <!-- Pintar la data -->
-
-            <div class='filterData'>
-                <label>Ordenar por</label>
-                <select name="orderBy" id="orderBy">
-                    <option value="">Selecciona</option>
-                    
-                </select>
-
-                <label>Ordenar en dirección</label>
-                <select name="orderByDir" id="direction">
-                        <option value="">Selecciona</option>                   
-                </select>
-            </div>
-
-            <div>
-                <table id="container">
-                    
-                </table>
-            </div>
+      
+            
         </main>
 
 
 
         <main id="main-students" style="display: none;">
             <h2>Estudiantes</h2>
+            <article>
+                <label>Buscar: </label>
+                <input type="search" id="filter" placeholder="Search for something..">
+            </article>
+            <table id="tableStudent">
+                <thead>
+                    <tr>
+                        <th>Nombres</th>
+                        <th>Completitud General</th>
+                        <th>Lecturas</th>
+                        <th>Ejercicios</th>
+                        <th>Quiz</th>
+                    </tr>
+                </thead>
+                <tbody id="listTable">
+                </tbody>
+            </table>
         </main>
 
         <main id="main-progress" style="display: none;">
@@ -100,7 +99,7 @@
             <h2>Squad</h2>
         </main>
     </section>
-    
+
     <script src="js/data.js"></script>
     <script src="js/main2.js"></script>
     <!-- <script src="js/main.js"></script> -->

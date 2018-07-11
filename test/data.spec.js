@@ -58,7 +58,7 @@ describe('data', () => {
           total: 3,
           completed: 2,
           percent: 67,
-          scoreSuma: 57,
+          scoreSum: 57,
           scoreAvg: 29,
         });
       });
