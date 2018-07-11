@@ -31,7 +31,7 @@ const totalCourse = document.getElementById('totalCourse');
 
 const listTableStudent = document.getElementById('listTable');
 
-options = {
+let options = {
     cohort: null,
     cohortData: {
         users: null,
@@ -71,33 +71,32 @@ menuGeneral.addEventListener('click', e => {
     mainSquads.style.display = 'none';
 })
 
-// const showData = (str, array) => {
-//     let template = '';
+const showData = (array) => {
+    let template = '';
 
-//     array.forEach(students => {
-//         // if (students.role === 'student') {
-//         template +=
-//             `<tr>
-//             <td> ${students.name} </td>
-//             <td> ${students.stats.percent} </td>
-//             <td> ${students.stats.exercises.percent} </td>
-//             <td> ${students.stats.quiz.percent} </td>
-//             <td> ${students.stats.quiz.scoreSum} </td>
-//             <td> ${students.stats.quiz.scoreAvg} </td>
-//             <td> ${students.stats.reads.percent} </td>
-//          </tr>`;
-//         // }
-//     });
-//     // return template;
-//     listTableStudent.innerHTML = template;
-// }
+    array.forEach(students => {
+        // if (students.role === 'student') {
+        template +=
+            `<tr>
+            <td> ${students.name} </td>
+            <td> ${students.stats.percent} </td>
+            <td> ${students.stats.reads.percent} </td>
+            <td> ${students.stats.exercises.percent} </td>
+            <td> ${students.stats.quizzes.percent} </td>
+         </tr>`;
+        // }
+    });
+    // return template;
+    listTableStudent.innerHTML = template;
+}
 
 const showProgress = (str, obj) => {
     // console.log(str);
     // console.log(obj);
     options.cohortData.progress = obj;
-    usersWithStats = processCohortData(options);
-    console.log(usersWithStats);
+
+    let usersWithStats = processCohortData(options);
+    showData(usersWithStats);    
 }
 
 const showUsers = (str, arr) => {

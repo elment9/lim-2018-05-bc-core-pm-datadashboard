@@ -1,5 +1,4 @@
 window.computeUsersStats = (users, progress, courses) => {
-
     users.forEach(user => {
         let progressUser = progress[user.id];
 
@@ -121,6 +120,7 @@ window.computeUsersStats = (users, progress, courses) => {
             };
         } //Fin del else    
     })//Termina user forEach
+    //console.log(students);
     return users;
 };
 
@@ -218,9 +218,7 @@ window.filterUsers = (users, search) => {
 //   //Creando la funcion processCohortData
 window.processCohortData = (options) => {
     const courses = Object.keys(options.cohort.coursesIndex);
-    const { users, progress } = options.cohortData;
-    computeUsersStats(options.cohortData.users, options.cohortData.progress, courses);
-    // students = sortUsers(students, orderBy, orderDirection);
+    let students= computeUsersStats(options.cohortData.users,options.cohortData.progress,courses);    // students = sortUsers(students, orderBy, orderDirection);
     // search = students = filterUsers(students, search);
-    // return students;
+    return students;
 };
