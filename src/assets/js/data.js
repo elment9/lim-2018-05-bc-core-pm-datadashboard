@@ -125,26 +125,63 @@ window.computeUsersStats = (users, progress, courses) => {
 };
 
 const sortByName = (a,b) => {
-    if (a.name.toUpperCase() > b.name.toUpperCase()) {
-        return 1;
-    }
-    if (a.name.toUpperCase() < b.name.toUpperCase()) {
-        return -1;
-    }
-    return 0;
-  }
+    if (a.name.toUpperCase() > b.name.toUpperCase()) return 1;
+    if (a.name.toUpperCase() === b.name.toUpperCase()) return 0;
+    return -1;
+  };
+
+const sortByTotal = (a,b) => {
+    if(a.stats.percent > b.stats.percent) return 1;
+    if(a.stats.percent === b.stats.percent) return 0;
+    return -1;
+};
+
+const sortByExc = (a,b) => {
+    if(a.stats.exercises.percent > b.stats.exercises.percent) return 1;
+    if(a.stats.exercises.percent === b.stats.exercises.percent) return 0;
+    return -1;
+};
+
+const sortByReads = (a,b) => {
+    if(a.stats.reads.percent > b.stats.reads.percent) return 1;
+    if(a.stats.reads.percent === b.stats.reads.percent) return;
+    return -1;
+};
+
+const sortByQuiz = (a,b) => { 
+    if(a.stats.quizzes.percent > b.stats.quizzes.percent) return 1;
+    if(a.stats.quizzes.percent === b.stats.quizzes.percent) return 0;
+    return -1;
+};
 
 //   //Creando la funcion sortUsers
 
+
 window.sortUsers = (students, orderBy, orderByDirection) => {
     let studentsSort = students;
-    if (orderBy === 'name'){
+    if (orderBy === 'name' ) {
         studentsSort = students.sort(sortByName);
     }
-
+    else if (orderBy === 'totalComp'){
+        studentsSort = students.sort(sortByTotal);
+    }
+    else if (orderBy === 'exc') {
+        studentsSort = students.sort(sortByExc);
+    }
     
-    return studentsSort;
+    else if (orderBy === 'reads') {
+        studentsSort = students.sort(sortByReads);
+    }
+    else if (orderBy === 'quiz') {
+        studentSort = students.sort(sortByQuiz)
+    }
+    
 
+    if (orderByDirection === 'desc') {
+        studentsSort = studentsSort.reverse();
+    }
+    return studentsSort;
+};
 
     //     let sorted = users;
 
@@ -226,7 +263,7 @@ window.sortUsers = (students, orderBy, orderByDirection) => {
     //       }
     //     }
     //     return sorted;
-};
+
 
 //   //Creando la funcion filterUsers
 window.filterUsers = (users, search) => {
