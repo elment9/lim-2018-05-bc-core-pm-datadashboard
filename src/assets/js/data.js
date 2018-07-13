@@ -1,5 +1,5 @@
 window.computeUsersStats = (users, progress, courses) => {
-    users.forEach(user => {
+    users.map(user => {
         let progressUser = progress[user.id];
 
         if (JSON.stringify(progressUser) === '{}') {
@@ -10,17 +10,17 @@ window.computeUsersStats = (users, progress, courses) => {
                     completed: 0,
                     percent: 0,
                 },
-                reads: {
-                    total: 0,
-                    completed: 0,
-                    percent: 0,
-                },
                 quizzes: {
                     total: 0,
                     completed: 0,
                     percent: 0,
                     scoreSum: 0,
                     scoreAvg: 0,
+                },
+                reads: {
+                    total: 0,
+                    completed: 0,
+                    percent: 0,
                 }
             };
         }
@@ -42,61 +42,49 @@ window.computeUsersStats = (users, progress, courses) => {
                 // const progressCourse = progressUser.hasOwnProperty(course);
                 if (progressUser.hasOwnProperty(course)) {
                     percentTotal += progressUser[course].percent / (courses.length);
-                }
+                    const unitsCourse = Object.values(progressUser[course].units);
+                    unitsCourse.forEach(unit => {
+                        const partsUnits = Object.values(unit.parts);
+                        partsUnits.forEach(part => {
 
-                const unitsCourse = Object.values(progressUser[course].units);
-                unitsCourse.forEach(unit => {
-                    const partsUnits = Object.values(unit.parts);
-                    partsUnits.forEach(part => {
-                        //aca recorremos cada parte de cada unidad de cada curso, las partes pueden ser lecturas, quizes, exercise, etc
-                        //en este caso si la part.length = 0 quiere decir que NO tiene datos en su interior 
-                        //asi que para que los contadores no se aumenten, se les da el valor de cero y se define aqui para asegurar que siempre los porcentajes den al menos cero
-                        // if (part.length === 0) {
-                        //     totalExercises = 0;
-                        //     totalReads = 0;
-                        //     totalQuiz = 0;
-                        //     percentExercises = 0;
-                        //     percentReads = 0;
-                        //     percentQuiz = 0;
-                        // }
+                            if (part.type === 'practice') {
+                                totalExercises++;
+                            }
+                            if (part.type === 'practice' && part.hasOwnProperty('exercises')) {
+                                const exerciseCompleted = Object.values(part.exercises)
+                                exerciseCompleted.forEach(exercise => {
+                                    if (exercise.completed === 1) {
+                                        completedExercises++;
+                                    }
+                                })
+                            }
+                            percentExercises = parseInt(((completedExercises * 100) / totalExercises).toFixed());
 
-                        if (part.type === 'practice') {
-                            totalExercises++;
-                        }
-                        if (part.type === 'practice'&& part.hasOwnProperty('exercises')) {
-                            const exerciseCompleted = Object.values(part.exercises)
-                            exerciseCompleted.forEach(exercise => {
-                                if (exercise.completed === 1) {
-                                    completedExercises++;
-                                }
-                            })
-                        }
-                        percentExercises = parseInt(((completedExercises * 100) / totalExercises).toFixed());
+                            if (part.type === 'quiz') {
+                                totalQuiz++;
+                            }
+                            if (part.type === 'quiz' && part.completed === 1) {
+                                completedQuiz++;
+                                scoreSum += part.score;
+                            }
+                            percentQuiz = parseInt(((completedQuiz * 100) / totalQuiz).toFixed());
 
-                        if (part.type === 'read') {
-                            totalReads++;
-                        }
-                        if (part.type === 'read' && part.completed === 1) {
-                            completedReads++;
-                        }
-                        percentReads = parseInt(((completedReads * 100) / totalReads).toFixed());
+                            if (part.type === 'read') {
+                                totalReads++;
+                            }
+                            if (part.type === 'read' && part.completed === 1) {
+                                completedReads++;
+                            }
+                            percentReads = parseInt(((completedReads * 100) / totalReads).toFixed());
 
-                        if (part.type === 'quiz') {
-                            totalQuiz++;
-                        }
-                        if (part.type === 'quiz' && part.completed === 1) {
-                            completedQuiz++;
-                            scoreSum += part.score;
-                        }
-                        percentQuiz = parseInt(((completedQuiz * 100) / totalQuiz).toFixed());
-
+                        })
+                        return partsUnits;
                     })
-                    return partsUnits;
-                })
+                }
                 //Termina el if
             })
             //Sacar el % fuera del forEach para evitar que recalcule
-            scoreAvg = parseInt((scoreSum / completedQuiz).toFixed());
+            scoreAvg = parseInt((scoreSum / completedQuiz || 0).toFixed());
 
             user.stats = {
                 percent: percentTotal,
@@ -105,179 +93,106 @@ window.computeUsersStats = (users, progress, courses) => {
                     completed: completedExercises,
                     percent: percentExercises,
                 },
-                reads: {
-                    total: totalReads,
-                    completed: completedReads,
-                    percent: percentReads,
-                },
                 quizzes: {
                     total: totalQuiz,
                     completed: completedQuiz,
                     percent: percentQuiz,
                     scoreSum: scoreSum,
                     scoreAvg: scoreAvg,
+                },
+                reads: {
+                    total: totalReads,
+                    completed: completedReads,
+                    percent: percentReads,
                 }
             };
         } //Fin del else    
     })//Termina user forEach
-    //console.log(students);
     return users;
 };
 
-const sortByName = (a,b) => {
-    if (a.name.toUpperCase() > b.name.toUpperCase()) return 1;
-    if (a.name.toUpperCase() === b.name.toUpperCase()) return 0;
-    return -1;
-  };
-
-const sortByTotal = (a,b) => {
-    if(a.stats.percent > b.stats.percent) return 1;
-    if(a.stats.percent === b.stats.percent) return 0;
-    return -1;
-};
-
-const sortByExc = (a,b) => {
-    if(a.stats.exercises.percent > b.stats.exercises.percent) return 1;
-    if(a.stats.exercises.percent === b.stats.exercises.percent) return 0;
-    return -1;
-};
-
-const sortByReads = (a,b) => {
-    if(a.stats.reads.percent > b.stats.reads.percent) return 1;
-    if(a.stats.reads.percent === b.stats.reads.percent) return;
-    return -1;
-};
-
-const sortByQuiz = (a,b) => { 
-    if(a.stats.quizzes.percent > b.stats.quizzes.percent) return 1;
-    if(a.stats.quizzes.percent === b.stats.quizzes.percent) return 0;
-    return -1;
-};
-
 //   //Creando la funcion sortUsers
+window.sortUsers = (users, orderBy, orderDirection) => {
+    let studentsSort = users;
 
+    const sortByName = (a, b) => {
+        if (a.name.toUpperCase() > b.name.toUpperCase()) return 1;
+        if (a.name.toUpperCase() === b.name.toUpperCase()) return 0;
+        return -1;
+    };
 
-window.sortUsers = (students, orderBy, orderByDirection) => {
-    let studentsSort = students;
-    if (orderBy === 'name' ) {
-        studentsSort = students.sort(sortByName);
+    const sortByTotal = (a, b) => {
+        if (a.stats.percent > b.stats.percent) return 1;
+        if (a.stats.percent === b.stats.percent) return 0;
+        return -1;
+    };
+
+    const sortByExc = (a, b) => {
+        if (a.stats.exercises.percent > b.stats.exercises.percent) return 1;
+        if (a.stats.exercises.percent === b.stats.exercises.percent) return 0;
+        return -1;
+    };
+
+    const sortByQuiz = (a, b) => {
+        if (a.stats.quizzes.percent > b.stats.quizzes.percent) return 1;
+        if (a.stats.quizzes.percent === b.stats.quizzes.percent) return 0;
+        return -1;
+    };
+
+    const sortByQuizAvg = (a, b) => {
+        if (a.stats.quizzes.scoreAvg > b.stats.quizzes.scoreAvg) return 1;
+        if (a.stats.quizzes.scoreAvg === b.stats.quizzes.scoreAvg) return 0;
+        return -1;
+    };
+
+    const sortByReads = (a, b) => {
+        if (a.stats.reads.percent > b.stats.reads.percent) return 1;
+        if (a.stats.reads.percent === b.stats.reads.percent) return 0;
+        return -1;
+    };
+
+    if (orderBy === 'name') {
+        studentsSort = users.sort(sortByName);
     }
-    else if (orderBy === 'totalComp'){
-        studentsSort = students.sort(sortByTotal);
+    else if (orderBy === 'totalComp') {
+        studentsSort = users.sort(sortByTotal);
     }
-    else if (orderBy === 'exc') {
-        studentsSort = students.sort(sortByExc);
+    else if (orderBy === 'excercises') {
+        studentsSort = users.sort(sortByExc);
     }
-    
+    else if (orderBy === 'quizzes') {
+        studentSort = users.sort(sortByQuiz)
+    }
+    else if (orderBy === 'quizzesAvg') {
+        studentSort = users.sort(sortByQuizAvg)
+    }
     else if (orderBy === 'reads') {
-        studentsSort = students.sort(sortByReads);
+        studentsSort = users.sort(sortByReads);
     }
-    else if (orderBy === 'quiz') {
-        studentSort = students.sort(sortByQuiz)
-    }
-    
 
-    if (orderByDirection === 'desc') {
+    if (orderDirection === 'ASC') {
+        studentsSort = studentsSort;
+    }
+    else if (orderDirection === 'DESC') {
         studentsSort = studentsSort.reverse();
     }
     return studentsSort;
 };
 
-    //     let sorted = users;
-
-    //     if (orderBy === 'Nombre') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.name.localeCompare(b.name)
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.name.localeCompare(b.name) * -1
-    //         })
-    //       }
-    //     }
-
-    //     if (orderBy === 'Porcentaje de completitud total') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.percent - b.stats.percent
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.percent - b.stats.percent
-    //         }).reverse();
-    //       }
-    //     }
-
-    //     if (orderBy === 'Porcentaje de Ejercicios completados') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.exercises.percent - b.stats.exercises.percent
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.exercises.percent - b.stats.exercises.percent
-    //         }).reverse();
-    //       }
-    //     }
-
-    //     if (orderBy === 'Porcentaje de Quizzes completados') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.quizzes.percent - b.stats.quizzes.percent
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.quizzes.percent - b.stats.quizzes.percent
-    //         }).reverse();
-    //       }
-    //     }
-
-    //     if (orderBy === 'Puntuacion Promedio de Quizzes completados') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.quizzes.scoreAvg - b.stats.quizzes.scoreAvg
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.quizzes.scoreAvg - b.stats.quizzes.scoreAvg
-    //         }).reverse();
-    //       }
-    //     }
-
-    //     if (orderBy === 'Porcentaje de lecturas completados') {
-    //       if (orderDirection === 'ASC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.reads.percent - b.stats.reads.percent
-    //         })
-    //       }
-    //       if (orderDirection === 'DESC') {
-    //         sorted = users.sort((a, b) => {
-    //           a.stats.reads.percent - b.stats.reads.percent
-    //         }).reverse();
-    //       }
-    //     }
-    //     return sorted;
-
-
 //   //Creando la funcion filterUsers
 window.filterUsers = (users, search) => {
-    //     return users.filter(user => {
-    //       return user.name.toLowerCase().indexOf(search.toLowerCase()) >= -1
-    //     })
+    let filterUser = users.filter(user => {
+        return user.name.toUpperCase().indexOf(search.toUpperCase()) !== -1;
+    })
+    return filterUser;
 };
 
 //   //Creando la funcion processCohortData
 window.processCohortData = (options) => {
     const courses = Object.keys(options.cohort.coursesIndex);
-    let students= computeUsersStats(options.cohortData.users,options.cohortData.progress,courses);    // students = sortUsers(students, orderBy, orderDirection);
-    // search = students = filterUsers(students, search);
-    
-    let studentsOrder = sortUsers (students, 'name', 'desc');
-    return studentsOrder;
+    let students = computeUsersStats(options.cohortData.users, options.cohortData.progress, courses);
+    studentsSorted = sortUsers(students, options.orderBy, options.orderDirection);
+    studentsFilter = filterUsers(studentsSorted, options.search);
+
+    return studentsFilter;
 };

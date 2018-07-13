@@ -1,15 +1,17 @@
 // -----MENU DESPLEGABLE-----
 let sideMenu = document.getElementById('side-menu'),
     sideMain = document.getElementById('container-principal');
+    
 
 let openSlideMenu = () => {
     sideMenu.style.width = '250px';
-    sideMain.style.marginLeft = '250px';
+    // sideMain.style.marginLeft = '250px';
+   
 }
 
 let closeSlideMenu = () => {
     sideMenu.style.width = '0';
-    sideMain.style.marginLeft = '0';
+    // sideMain.style.marginLeft = '0';
 }
 
 /********************************************** Seleccion del DOM************************************************ */
@@ -33,6 +35,12 @@ const totalUser = document.getElementById('totalUser');
 const totalCourse = document.getElementById('totalCourse');
 
 const listTableStudent = document.getElementById('listTable');
+const studentContainer = document.getElementById('studentContainer');
+
+const searchUser = document.getElementById('searchUser');
+const selectOrderBy = document.getElementById('orderBy');
+const selectDirection = document.getElementById('orderDirection');
+
 
 let options = {
     cohort: null,
@@ -40,9 +48,9 @@ let options = {
         users: null,
         progress: null,
     },
-    orderBy: 'name',
-    orderByDirection: 'ASC',
-    search: '',
+    orderBy: '',
+    orderDirection: '',
+    search: ''
 };
 /**************************************************Funciones complementarias********************************** */
 
@@ -71,8 +79,25 @@ menuGeneral.addEventListener('click', e => {
     mainWelcome.style.display = 'none';
     mainStudents.style.display = 'none';
     mainProgress.style.display = 'none';
-    mainSquads.style.display = 'none';
-})
+});
+
+selectDirection.addEventListener('change', () => {
+    options.orderDirection = selectDirection.value;
+    let usersWithStats = processCohortData(options);
+    showData(usersWithStats);
+});
+
+selectOrderBy.addEventListener('change', () => {
+    options.orderBy = selectOrderBy.value;
+    // let usersWithStats = processCohortData(options);
+    // showData(usersWithStats);
+});
+
+searchUser.addEventListener('keyup', () => {
+    options.search = searchUser.value;
+    let usersWithStats = processCohortData(options);
+    showData(usersWithStats);
+});
 
 
 
@@ -80,9 +105,9 @@ menuGeneral.addEventListener('click', e => {
 
 const showData = (array) => {
     let template = '';
+    array = array.filter(arr => arr.role === 'student');
 
     array.forEach(students => {
-        // if (students.role === 'student') {
         template +=
             `<tr>
             <td> ${students.name} </td>
@@ -90,18 +115,31 @@ const showData = (array) => {
             <td> ${students.stats.reads.percent} </td>
             <td> ${students.stats.exercises.percent} </td>
             <td> ${students.stats.quizzes.percent} </td>
+            <td> ${students.stats.quizzes.scoreAvg} </td>
          </tr>`;
-        // }
     });
-    // return template;
     listTableStudent.innerHTML = template;
+
+    for (students of array) {
+        let containerStudent = document.createElement('article');
+        let photoStudent = document.createElement('img');
+        let nameStudent = document.createElement('h6');
+        let idStudent = document.createElement('p');
+        let img = 'img/girl.png';
+        photoStudent.setAttribute('src', img);
+        idUser = students.id;
+        nameUser = students.name;
+        idStudent.textContent = idUser;
+        nameStudent.textContent = nameUser;
+        containerStudent.appendChild(photoStudent);
+        containerStudent.appendChild(idStudent);
+        containerStudent.appendChild(nameStudent);
+        studentContainer.appendChild(containerStudent);
+    }
 }
 
 const showProgress = (str, obj) => {
-    // console.log(str);
-    // console.log(obj);
     options.cohortData.progress = obj;
-
     let usersWithStats = processCohortData(options);
     showData(usersWithStats);
 }
@@ -109,8 +147,6 @@ const showProgress = (str, obj) => {
 const showUsers = (str, arr) => {
     options.cohortData.users = arr;
     getData(str, `https://api.laboratoria.la/cohorts/${str}/progress`, showProgress);
-    // console.log(str);
-    // console.log(arr);
 }
 
 const showCohorts = (str, arr) => {
@@ -127,8 +163,8 @@ const showCohorts = (str, arr) => {
             if (element.id === e.target.value) {
                 options.cohort = element;
                 let numCourse = Object.keys(element.coursesIndex);
-                totalUser.innerHTML = `<h3>${element.usersCount}</h3><p>Usuarixs</p>`;
-                totalCourse.innerHTML = `<h3>${numCourse.length}</h3><p>Cursos</p>`;
+                totalUser.innerHTML = `<h4>${element.usersCount}</h4><p>Usuarixs</p>`;
+                totalCourse.innerHTML = `<h4>${numCourse.length}</h4><p>Cursos</p>`;
             }
         })
         getData(e.target.value, `https://api.laboratoria.la/cohorts/${e.target.value}/users`, showUsers);
@@ -136,10 +172,7 @@ const showCohorts = (str, arr) => {
 }
 
 const showCampus = (str, arr) => {
-    // console.log(arr);
     arr.forEach(element => {
-        //console.log(element.id);
-        //console.log(element.name);
         selectCampus.insertAdjacentHTML('beforeend', `<option id=${element.id} value=${element.id}>${element.name}</option>`);
     });
 
@@ -156,10 +189,10 @@ const showCampus = (str, arr) => {
 getData('', 'https://api.laboratoria.la/campuses/', showCampus);
 
 menuStudents.addEventListener('click', () => {
+
     mainStudents.style.display = 'block';
     mainCampus.style.display = 'none';
     mainProgress.style.display = 'none';
-    mainSquads.style.display = 'none';
     mainWelcome.style.display = 'none';
 });
 
@@ -167,15 +200,5 @@ menuProgress.addEventListener('click', () => {
     mainProgress.style.display = 'block';
     mainCampus.style.display = 'none';
     mainStudents.style.display = 'none';
-    mainSquads.style.display = 'none';
     mainWelcome.style.display = 'none';
-});
-
-menuSquads.addEventListener('click', () => {
-    mainSquads.style.display = 'block';
-    mainProgress.style.display = 'none';
-    mainCampus.style.display = 'none';
-    mainStudents.style.display = 'none';
-    mainWelcome.style.display = 'none';
-
 });
