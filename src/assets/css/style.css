@@ -5,8 +5,8 @@ body{
     font-family: 'Bitter', serif;
     background-color:#f4f4f4;
     overflow-x:hidden;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 .navbar{ /*BARRA*/
   background-color: #ffffff;
@@ -28,17 +28,17 @@ body{
   display: block;
   margin: 10px auto;
 }
-.side-nav{
+.side-nav {
   height:100%;
   width:0;
   position:fixed;
-  /* z-index:1; */
   top:0;
   left:0;
   background-color:#FFE521;
   overflow-x:hidden;
   padding-top:60px;
   transition:0.3s;
+  z-index: 1;
 }
 .side-nav .btn-close{
   width: auto;
@@ -87,16 +87,23 @@ p {
   overflow:hidden;
   width:100%;
 }
+
 h2 {
   text-align: left;
-  margin: 15px 30px;
+  margin: 10px 20px;
+  font-size: 30px;
+  
 }
-article {
+
+h2 span {
+  color: #FF009E;
+}
+.art-progress {
   background-color:#FFE521;
   width: 55%;
-  height: 180px;
+  height: 150px;
   border-radius: 10px;
-  margin: 5px auto;
+  margin: 0px auto;
   padding: 15px;
 }
 .detail-one,
@@ -104,41 +111,197 @@ article {
   display: flex;
   justify-content: space-evenly;
   margin: 0px auto;
-  padding: 15px;
+  padding: 10px;
 }
+
+#promoImg {
+  padding-top: 50px;
+  vertical-align: middle;
+  width: 100%;
+}
+
 .detail-user,
 .detail-course {
   background-color: white;
   border-radius: 5px;
   width: 30%;
-  height: 100px;
+  height: 80px;
 }
-h3 {
+
+h4, h6 {
   text-align: center;
   margin: 0px;
   padding: 5px;
-  font-size: 36px;
 }
-p {
-  font-size: 25px;
+h4 {
+  font-size: 30px;
+  margin: 0;
 }
+
+p, h6{
+  
+  font-size: 15px;
+  margin: 0;
+}
+}
+
 h3,
 p {
   font-family: 'Bitter', serif;
 }
+
 .select-cohorts {
   width: 35%;
 }
 
 .icon-promo {
   padding: 20px;
-display: block;
-margin: auto;
+  display: block;
+  margin: auto;
 }
 
+.art-student {
+  background-color:#FFE521;
+  width: 30%;
+  height: 90px;
+  border-radius: 5px;
+  margin: 0px auto;
+  padding: 10px;
+  justify-content: space-evenly;
+  padding: 20px;
+  
 
-@media(min-width:568px){
-  .navbar-nav {
-    display:block
+}
+
+.table-container {
+  margin: 20px;
+  font-size: 12px;
+}
+
+table {
+  width:100%;
+  table-layout: fixed;
+  text-align: center;
+}
+
+.table-th {
+  background-color:#FFE521;
+  padding: 20px 15px;
+  text-align: left;
+  /* font-weight: 500; */
+  color: black;
+  text-transform: uppercase;
+ }
+
+.table-tb {
+  height: 350px;
+  overflow-x: scroll;
+  margin-top: 0px;
+}
+
+td {
+  background-color: white;
+  margin: auto;
+  padding: 15px;
+  vertical-align:middle;
+  font-size: 12px;
+  color: black;
+}
+
+.student-container {
+  background-color: rgb(212, 214, 214);
+  width: 98%;
+}
+
+article {
+  background-color: white;
+  width: 20%;
+  height: 150px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 18px;
+}
+
+video {
+  position: fixed;
+  width: 80%;
+  height: 60%;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+@media(max-width:720px){
+  main {
+    margin-left: 0px;
   }
+  .navbar-nav {
+    display:block;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  video {
+    text-align: center;
+    height: 40%;
+    width: auto;
+  }
+
+  .art-progress {
+    display: block;
+    height: 200px;
+  }
+
+
+  .detail-one {
+    display: inline;
+    text-align: left;
+  }
+
+  .detail-one label {
+    display: inline;
+    font-size: 12px;
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  #selectCampus,
+  #selectCohorts {
+    
+    text-align: center;
+    width: 100%;
+
+  }
+
+  .detail-two {
+    display: flex;
+  }
+
+  .detail-user,
+  .detail-course {
+    width: 45%;
+    height: 80px;
+  }
+
+  #promoImg {
+    display: none;
+  }
+
+  .art-student {
+    width: 70%;
+    height: 140px;
+  }
+  
+  .art-student label {
+    font-size: 17px;
+  }
+
+  .table-container {
+    margin: 20px;
+    font-size: 9px;
+  }
+
 }
