@@ -24,34 +24,32 @@
         <span id="side-menu" class="side-nav">
             <a class="btn-close" onclick="closeSlideMenu()">&times;</a>
             <img id="user-photo" src="img/ale.jpg" alt="user">
-            <h3>Alejandra</h3>
+            <h4>Alejandra</h4>
             <p>Training Manager
                 <br>Perú</p>
             <br>
             <a id="btnShowGeneral">
                 <img class="icon-menu" src="img/general.png" alt=""> GENERAL</a>
-            <a id="btnShowStudents">
-                <img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
             <a id="btnShowProgress">
                 <img class="icon-menu" src="img/progreso.png" alt="">PROGRESO</a>
-            <a id="btnShowSquads">
-                <img class="icon-menu" src="img/squad.png" alt="">SQUAD</a>
+            <a id="btnShowStudents">
+                <img class="icon-menu" src="img/alumnas.png" alt=""> ALUMNAS</a>
         </span>
     </nav>
     <section id="container-principal">
         <main id="main-welcome">
-            <h2>Bienvenidx usuarix</h2>
+            <h2>Bienvenida <span>Alejandra</span></h2>
+            <video src="img/Mapa_con_Logo.mp4" autoplay loop muted poster="img/poster.jpeg"></video>
         </main>
-
         <main id="main-campus" style="display: none;">
-            <h2>Progreso General</h2>
-            <article>
+            <h2>General</h2>
+            <article class="art-progress">
                 <div class="detail-one">
-                    <label>Campus</label>
+                    <label>Campus</label> <br>
                     <select id="selectCampus">
-                        <!-- <option>Selecciona la sede</option> -->
+                        <option value="sede">Selecciona la sede</option>
                     </select>
-                    <label>Cohort</label>
+                    <label>Cohort</label> <br>
                     <select id="selectCohorts" class="select-cohorts">
                         <option>Selecciona la promocion</option>
                     </select>
@@ -60,24 +58,100 @@
                     <div id="totalUser" class="detail-user"></div>
                     <div id="totalCourse" class="detail-course"></div>
                 </div>
-                </div>
+                <img id="promoImg" src="img/promo.png">
             </article>
         </main>
-
         <main id="main-students" style="display: none;">
             <h2>Estudiantes</h2>
+            <article>
+                <label>Buscar: </label>
+                <input type="search" id="filter" placeholder="Search for something..">
+
+                <label>Ordenar por</label>
+                <select name="orderBy" id="order-by">
+                    <option value="">---</option>
+                    <option value="name">Nombre</option>
+                    <option value="totalComp">Completitud General</option>
+                    <option value="exc">Ejercicios</option>
+                    <option value="reads">Lecturas</option>
+                    <option value="quiz">Quizzes</option>
+                </select>
+
+                <label> Ordenar en dirección </label>
+                <select name="orderDir" id="order-dir">
+                    <option value="">---</option>
+                    <option value="asc">Ascendente</option>
+                    <option value="des">Descendente</option>
+                </select>
+            </article>
+            <table id="tableStudent">
+                <thead>
+                    <tr>
+                        <th>Nombres</th>
+                        <th>Completitud General</th>
+                        <th>Lecturas</th>
+                        <th>Ejercicios</th>
+                        <th>Quiz</th>
+                    </tr>
+                </thead>
+                <tbody id="listTable">
+                </tbody>
+            </table>
         </main>
 
         <main id="main-progress" style="display: none;">
             <h2>Progreso</h2>
+            <article class="art-student">
+                <label>Buscar</label>
+                <input id="searchUser" type="text" placeholder="Ingresa tu busqueda"> <br>
+                <label>Ordenar por</label>
+                <select id="orderBy"> 
+                    <option value="">Filtrar por...</option>
+                    <option value="name">Nombre</option>
+                    <option value="totalComp">Completitud General</option>
+                    <option value="reads">Lecturas</option>
+                    <option value="excercises">Ejercicios</option>
+                    <option value="quizzes">Quizzes</option>
+                    <option value="quizzesAvg">Promedio de Quizzes</option>
+                </select> <br>
+                <label> Ordenar en dirección </label>
+                <select id="orderDirection">
+                    <option value="">Ordenar por...</option>
+                    <option value="ASC">Ascendente</option>
+                    <option value="DESC">Descendente</option>
+                </select>
+            </article>
+            <div class="table-container">
+                <div class="table-th">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th>Nombres</th>
+                                <th> % Gral</th>
+                                <th>Lecturas</th>
+                                <th>Ejercicios</th>
+                                <th>Quiz</th>
+                                <th>Quiz Promedio</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table-tb">
+                    <table>
+                        <tbody id="listTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </main>
-
-        <main id="main-squads" style="display: none;">
-            <h2>Squad</h2>
+        <main id="main-students" style="display: none;">
+            <h2>Estudiantes</h2>
+            <div id="studentContainer"></div>
         </main>
     </section>
     <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main2.js"></script>
+    <!-- <script src="js/main.js"></script> -->
 </body>
 
 </html>
