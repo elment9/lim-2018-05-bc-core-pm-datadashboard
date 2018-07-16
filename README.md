@@ -166,6 +166,9 @@ Para entender a plenitud el proyecto(funciones y procesos) se graficó el flujo 
 
 ![mendoza y silva _ flujo funciones](https://user-images.githubusercontent.com/39272944/41561243-f9b8a17c-730e-11e8-81cb-75d921d16891.jpg)
 
+## 6. Proyecto Final
+
+![Proceso](![Alt Text](https://media.giphy.com/media/xiqhozf3nkYikCZIv2/giphy.gif)
 
 
 
