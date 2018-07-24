@@ -1,7 +1,6 @@
 # Data Dashboard
 
-Mira el proyecto AQUÍ >>>>> https://elment9.github.io/lim-2018-05-bc-core-pm-datadashboard/src/assets/
-
+Mira el proyecto [**AQUÍ**](https://elment9.github.io/lim-2018-05-bc-core-pm-datadashboard/src/assets/)
 ## 1. Cliente
 Laboratoria Lima
 
@@ -136,11 +135,11 @@ otras.
 Posteriormente, se realizó el segundo prototipo en Figma. Este tiene fidelidad media y cuenta 
 cierto dinamismo, que simula la interación con el usuario.
 
-Pueden ver el **PROTOTIPO DINÁMICO** en Marvel [**AQUÍ**](https://marvelapp.com/177cdbf6/screen/44209192)
+Pueden ver el **prototipo dinámico** en Marvel [**AQUÍ**](https://marvelapp.com/177cdbf6/screen/44209192)
 
 ### Prototipo de alta fidelidad
 
-Este prototipo se desarrolló con las recomendaciones dadas por Alejandra. Pueden ver el **PROTOTIPO DINÁMICO** en Marvel [**AQUÍ**](https://marvelapp.com/3jd5hc3/screen/45119589)
+Este prototipo se desarrolló con las recomendaciones dadas por Alejandra. Pueden ver el **prototipo dinámico** en Marvel [**AQUÍ**](https://marvelapp.com/3jd5hc3/screen/45119589)
 
 Datos generales (salón)
 ![**Gral**](https://user-images.githubusercontent.com/39272944/42144750-783e9a10-7d82-11e8-8774-4ae119b6fdf7.png)
