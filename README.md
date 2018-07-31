@@ -1,6 +1,6 @@
 # Data Dashboard
 
-Mira el proyecto [**AQUÍ**](https://elment9.github.io/lim-2018-05-bc-core-pm-datadashboard/src/assets/)
+[ Prueba nuestra web  AQUÍ](https://elment9.github.io/lim-2018-05-bc-core-pm-datadashboard/src/assets/)
 ## 1. Cliente
 Laboratoria Lima
 
@@ -21,9 +21,7 @@ LMS (Learning Management System) de Laboratoria.
 
   Antes de definir el 'contenido necesario' se realizaron tres entrevistas a la TM de Laboratoria Lima. 
 
-  ### 4.1.1.Preguntas
-
-#### Primera entrevista (Sketch)
+#### 4.1.1 Primera entrevista (Sketch)
 
   **Motivaciones:** Identificando metas y motivaciones (¿Qué les importa a tus usuarios o  qué los motiva?)
   ¿Cuáles son tus metas como T.M.?
@@ -36,11 +34,11 @@ LMS (Learning Management System) de Laboratoria.
 
   ¿Qué es interesante acerca de la manera en que tú (como T.M.) interactúas con el Data Dashboard actual?
 
-  **RESPUESTA**
+  **CONCLUSIONES**
 
   * Alejandra indicó que actualemente no cuenta con una interfaz gráfica que le permita ver la data de las alumnas en el LMS. Solo cuenta con una especie de excel. Esto le dificulta ver el avance de las alumnas y en consecuencia, implementa estrategias para mejorar el aprendizaje de ellas.  
 
-#### Segunda entrevista (Prototipo 1)
+#### 4.1.2. Segunda entrevista (Prototipo 1)
 * ¿Qué contenido es más importante para ti?
 * ¿Qué dispositivos usas para observar esta información?
 * ¿Qué no te agrada de esta aplicación?
@@ -49,9 +47,16 @@ LMS (Learning Management System) de Laboratoria.
 **CONCLUSIONES:**
 * Priorizar el avance de los ejercicios.
 * Crear un iUsa solo laptop, pero le agradaría ver los datos en un dispositivo móvil. 
-* Implementar la opciónd de squads, ya que le parece útil.
+* Implementar la opción de squads, ya que le parece útil.
 * Eliminar select sede y generación, ya que resulta redundante. Colocar solo sede.
 * Desarrollar opción para usar distintos tipos de gráficos y otra forma de seleccionar squad. 
+
+#### 4.1.3. Tercera entrevista (Prototipo 2)
+
+**CONCLUSIONES:**
+
+* Sección squads: En lugar de colocar checkbox para elegir a ciertas alumnas, y ver el avance de un solo squad, colocar pestañas de tal forma que pueda poner los números y luego ver el avance de varios squads. Esto le ahorraría tiempo.
+
 
 ### ARQUETIPO DE USUARIO (Persona UX)
 ![artboard 1 3x-100](https://user-images.githubusercontent.com/34355830/42785908-ba3a696a-8919-11e8-95a8-c67f26b8ca27.jpg)
@@ -59,7 +64,7 @@ LMS (Learning Management System) de Laboratoria.
 
 ### 4.2. Contenido necesario
 
-Esta lista se elaboró en base a lo mencionado por la TM en las entrevistas realizadas. Es importante aclarar, que no se han habilitado todas las opciones en este proyecto, por temas de tiempo. No obstante, lo mostramos como solución al problema planteado.
+Esta lista se elaboró en base a lo mencionado por la TM en las entrevistas realizadas. A partir de allí se desarrolló un prototipo ideal.
 
 #### A. General
 
@@ -132,14 +137,13 @@ otras.
 
 ### Segundo Prototipo
 
-Posteriormente, se realizó el segundo prototipo en Figma. Este tiene fidelidad media y cuenta 
-cierto dinamismo, que simula la interación con el usuario.
+Posteriormente, se realizó el segundo prototipo en Figma. Este tiene fidelidad media y cuenta con cierto dinamismo, que simula la interación con el usuario.
 
-Pueden ver el **prototipo dinámico** en Marvel [**AQUÍ**](https://marvelapp.com/177cdbf6/screen/44209192)
+[Puedes ver el prototipo dinámico en Marvel **AQUÍ**](https://marvelapp.com/177cdbf6/screen/44209192)
 
 ### Prototipo de alta fidelidad
 
-Este prototipo se desarrolló con las recomendaciones dadas por Alejandra. Pueden ver el **prototipo dinámico** en Marvel [**AQUÍ**](https://marvelapp.com/3jd5hc3/screen/45119589)
+Este prototipo se desarrolló con las recomendaciones dadas por Alejandra. [**Puedes ver el **prototipo dinámico** en Marvel AQUÍ**](https://marvelapp.com/4f1f89a/screen/46272279)
 
 Datos generales (salón)
 ![**Gral**](https://user-images.githubusercontent.com/39272944/42144750-783e9a10-7d82-11e8-8774-4ae119b6fdf7.png)
@@ -165,9 +169,9 @@ Para entender a plenitud el proyecto(funciones y procesos) se graficó el flujo 
 
 ![mendoza y silva _ flujo funciones](https://user-images.githubusercontent.com/39272944/41561243-f9b8a17c-730e-11e8-81cb-75d921d16891.jpg)
 
-## 6. Proyecto Final
+## 6. Vista final del proyecto
 
-![Proceso](![Alt Text](https://media.giphy.com/media/xiqhozf3nkYikCZIv2/giphy.gif)
+![](![Alt Text](https://media.giphy.com/media/xiqhozf3nkYikCZIv2/giphy.gif)
 
 
 
